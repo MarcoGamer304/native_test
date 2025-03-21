@@ -27,7 +27,7 @@ export default function Post({
           <View style={styles.tweetContent}>
             <View style={styles.headerContainer}>
             <Text style={styles.username}>{user}</Text>
-            <Icon name="..." size={20} color="#000" />
+            <Icon name="comments" size={20} color="#000" />
             </View>
             <Text style={styles.tweetText}>{message}</Text>
           </View>
@@ -48,7 +48,7 @@ export default function Post({
           </TouchableOpacity>
           <TouchableOpacity style={styles.actionButton}>
             <Text style={styles.actionText}></Text>
-            <Icon name="destacados" size={20} color="white" />
+            <Icon name="comments" size={20} color={destacados === true ? "blue" : "white"} />
           </TouchableOpacity>
         </View>
       </View>

@@ -7,17 +7,18 @@ import {
   Button,
   TouchableHighlight,
 } from "react-native";
+import ScreenBorder from "../../components/essential/ScreenBorders";
 
-export default function App() {
+export default function MessageScreen() {
   return (
-    <View style={styles.container}>
-      
-      <Text>Open dup App.js to start working on your app!</Text>
-
-      <Text style={styles.text}>
-        Open up App.js to start working on your app!
-      </Text>
-    </View>
+    <ScreenBorder>
+      <View style={styles.container}>
+        <Text>Messages</Text>
+        <Text style={styles.text}>
+          Open up App.js to start working on your app!
+        </Text>
+      </View>
+    </ScreenBorder>
   );
 }
 

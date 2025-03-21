@@ -23,13 +23,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    height: 80,
+    height: 105,
     width: "100%",
     backgroundColor: "white"
   },
   avatar: {
     width: 50,
     height: 50,
+    marginTop: 35,
     marginHorizontal: 30,
     borderRadius: 30
   }

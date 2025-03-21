@@ -17,7 +17,7 @@ const tweets = [
       comments: 8,
       likes: 95,
       shares: 10,
-      destacados: false,
+      destacados: true,
     },
     {
       id: "3",

@@ -8,11 +8,11 @@ import {
   TouchableHighlight,
   TouchableOpacity
 } from "react-native";
-import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+import ScreenBorder from "../components/essential/ScreenBorders";
 
 export default function SideMenu(props) {
   return (
-    <SafeAreaView style={styles.drawerContainer}>
+    <ScreenBorder style={styles.drawerContainer}>
       <View style={styles.profileSection}>
         <Image
           source={{ uri: "https://randomuser.me/api/portraits/women/2.jpg" }}
@@ -32,7 +32,7 @@ export default function SideMenu(props) {
       >
         <Text style={styles.drawerItemText}>Mi Perfil</Text>
       </TouchableOpacity>
-    </SafeAreaView>
+    </ScreenBorder>
   );
 }
 
