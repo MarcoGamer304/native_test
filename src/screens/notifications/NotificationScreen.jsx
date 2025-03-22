@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import Notification from "../../components/Notification";
 import notificationData from "../../provitionalData/notificationExamples";
-import ChatScreen from "../message/ChatScreen";
+import ChatScreen from "../message/messageSection/ChatScreen";
 import ScreenBorder from "../../components/essential/ScreenBorders";
 
 export default function NotificationScreen() {

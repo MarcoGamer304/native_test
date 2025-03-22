@@ -4,7 +4,7 @@ import { View, Text } from "react-native"
 export default function ChatScreen() {
     return (
         <View>
-            <Text>Detesto esta barra</Text>
+            <Text>hacer sistema de mensajeria</Text>
         </View>
     )
 }

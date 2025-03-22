@@ -1,8 +1,6 @@
 import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import ChatScreen from "../screens/message/ChatScreen";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import HomeScreen from "../screens/home/HomeScreen";
 
 const Tab = createBottomTabNavigator();
 

@@ -8,18 +8,16 @@ import {
     TouchableHighlight,
 } from "react-native";
 import TopTabsNavigator from "../../routes/TopTabsNavigator";
-import NotificationScreen from "../notifications/NotificationScreen";
 import ScreenBorder from "../../components/essential/ScreenBorders";
-import ChatScreen from "../message/ChatScreen";
-import HomeScreen from "../home/HomeScreen";
-
+import SuggestionScreen from "./searchSection/SuggestionScreen";
+import RecordScreen from "./searchSection/RecordScreen";
 export default function SearchScreen() {
     return (
-        <ScreenBorder style={styles.container}>
+        <ScreenBorder style={styles.container} scrollable={false} searchBar={true}>
             <TopTabsNavigator
                 elements={[
-                    { name: "Sugerencias", component: ChatScreen, icon: "home" },
-                    { name: "Historial", component: NotificationScreen, icon: "history" }
+                    { name: "Suggestion", component: RecordScreen, icon: "home" },
+                    { name: "Historial", component: SuggestionScreen, icon: "history" }
                 ]}
             />
         </ScreenBorder>

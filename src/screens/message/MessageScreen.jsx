@@ -1,23 +1,17 @@
-import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Button,
-  TouchableHighlight,
-} from "react-native";
+import { StyleSheet } from "react-native";
 import ScreenBorder from "../../components/essential/ScreenBorders";
-
+import TopTabsNavigator from "../../routes/TopTabsNavigator";
+import ChatScreen from "./messageSection/ChatScreen";
+import NotificationScreen from "../notifications/NotificationScreen";
 export default function MessageScreen() {
   return (
-    <ScreenBorder>
-      <View style={styles.container}>
-        <Text>Messages</Text>
-        <Text style={styles.text}>
-          Open up App.js to start working on your app!
-        </Text>
-      </View>
+    <ScreenBorder style={styles.container} scrollable={false} searchBar={true}>
+      <TopTabsNavigator
+        elements={[
+          { name: "Teams", component: ChatScreen, icon: "comments" },
+          { name: "Message", component: NotificationScreen, icon: "comment" }
+        ]}
+      />
     </ScreenBorder>
   );
 }
