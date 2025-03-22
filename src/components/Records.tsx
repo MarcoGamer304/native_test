@@ -1,15 +1,14 @@
+import { useEffect, useState } from "react";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import recordsProps from "../interfeces/componets/recordsProps";
 import {
     StyleSheet,
     Text,
     View,
-    Image,
-    Button,
-    TouchableHighlight,
+    Image
 } from "react-native";
-import { useEffect, useState } from "react";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
 
-export default function Notification({ notification, avatar, user }) {
+export default function Notification({ notification, avatar, user }: recordsProps) {
 
     const [icon, setIcon] = useState("search");
 
@@ -35,18 +34,18 @@ const styles = StyleSheet.create({
         justifyContent: "flex-start",
         margin: 2,
         height: 50,
-        width: "97%",
+        width: "95%",
         backgroundColor: "gray",
         borderRadius: 20,
-        paddingHorizontal: 20,
-    },
+        paddingHorizontal: 15,
+      },
     avatar: {
         width: 40,
         height: 40,
         borderRadius: 30
     }, text: {
         fontSize: 15,
-        paddingHorizontal: 10,
+        paddingHorizontal: 15,
     },
     textUser: {
         fontSize: 15,

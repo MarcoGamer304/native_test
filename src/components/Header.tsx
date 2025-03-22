@@ -1,20 +1,28 @@
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { useState } from "react";
+import { useNavigation } from '@react-navigation/native';
+import HeaderProps from "../interfeces/componets/headerProps";
+import { DrawerNavigationProp } from "@react-navigation/drawer";
 import {
   StyleSheet,
   View,
-  Text,
   Image,
+  Pressable ,
   TextInput
 } from "react-native";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { useState } from "react";
 
-export default function Header({ avatar, searchBar = false }) {
+type NavigationType = DrawerNavigationProp<any>;
+
+export default function Header({ avatar, searchBar }: HeaderProps ): JSX.Element{
 
   const [searchText, setSearchText] = useState("");
+  const navigation = useNavigation<NavigationType>();
 
   return (
     <View style={styles.container}>
-      <Image source={{ uri: avatar }} style={styles.avatar} />
+      <Pressable onPress={() => navigation.openDrawer()}>
+        <Image source={{ uri: avatar }} style={styles.avatar} />
+      </Pressable>
       {searchBar === true ?
         <View style={styles.searchContainer}>
           <FontAwesome name={"search"} color={"black"} size={30} />
@@ -34,14 +42,15 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    height: 105,
+    height: 50,
     width: "100%",
-    backgroundColor: "white"
+    backgroundColor: "white",
+    marginBottom: 5
   },
   avatar: {
     width: 50,
     height: 50,
-    marginTop: 35,
+   
     marginHorizontal: 30,
     borderRadius: 30
   },
@@ -54,7 +63,6 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 10,
     width: "50%",
-    marginTop: 35,
     marginHorizontal: 20,
   },
   icon: {

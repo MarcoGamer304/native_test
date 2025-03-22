@@ -1,12 +1,12 @@
-import { View, Text, Image } from "react-native";
+import { View, StyleSheet } from "react-native";
 import Records from "../../../components/Records";
 import ScreenBorder from "../../../components/essential/ScreenBorders";
 import records from "../../../provitionalData/records";
 
 export default function RecordScreen() {
   return (
-    <ScreenBorder header={false} >
-      <View>
+    <ScreenBorder header={false} scrollable={true} searchBar={false}>
+      <View style={styles.container}>
         {records.map((item) => (
           <Records
             key={item.id}
@@ -19,3 +19,12 @@ export default function RecordScreen() {
     </ScreenBorder>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#ddr1e6",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});

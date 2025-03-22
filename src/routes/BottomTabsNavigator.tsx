@@ -1,22 +1,21 @@
 import { StyleSheet, Text, View } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import tabs from "../components/routes/tabs"
+import tabs from "../components/routes/bottomTabs"
 
 const Stack = createBottomTabNavigator();
 
-export default function App() {
+export default function BottomTabsNavigator() {
 
     return (
         <Stack.Navigator
             screenOptions={{
-                tabBarActiveTintColor: "black",
+                tabBarActiveTintColor: "white",
                 tabBarInactiveTintColor: "gray",
                 tabBarBadgeStyle: barStyles.tabBarBadgeStyle,
                 tabBarLabelStyle: barStyles.tabBarLabelStyle,
                 tabBarStyle: barStyles.tabBarStyle,
-                headerShown: false,
-                tabBarStyle: { backgroundColor: "white" },
+                headerShown: false
             }}
         >
             {tabs.map((item) => (

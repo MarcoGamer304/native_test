@@ -1,11 +1,11 @@
 import { StyleSheet, View } from "react-native";
 import data from "../../provitionalData/twit";
-import Post from "../../components/Publication";
+import Post from "../../components/Post";
 import ScreenBorder from "../../components/essential/ScreenBorders";
 
 export default function HomeScreen() {
   return (
-    <ScreenBorder>
+    <ScreenBorder scrollable={true} searchBar={true} header={true}>
       <View style={styles.container}>
         {data.map((post) => (
           <Post
@@ -30,5 +30,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#ddr1e6",
     alignItems: "center",
     justifyContent: "center",
-  }
+  },
 });

@@ -2,14 +2,20 @@ import { StyleSheet } from "react-native";
 import ScreenBorder from "../../components/essential/ScreenBorders";
 import TopTabsNavigator from "../../routes/TopTabsNavigator";
 import ChatScreen from "./messageSection/ChatScreen";
-import NotificationScreen from "../notifications/NotificationScreen";
+import TeamsScreen from "./messageSection/TemsScreen";
+
 export default function MessageScreen() {
   return (
-    <ScreenBorder style={styles.container} scrollable={false} searchBar={true}>
+    <ScreenBorder
+      style={styles.container}
+      scrollable={false}
+      searchBar={true}
+      header={true}
+    >
       <TopTabsNavigator
         elements={[
-          { name: "Teams", component: ChatScreen, icon: "comments" },
-          { name: "Message", component: NotificationScreen, icon: "comment" }
+          { name: "Teams", component: TeamsScreen, icon: "comments" },
+          { name: "Message", component: ChatScreen, icon: "comment" },
         ]}
       />
     </ScreenBorder>
