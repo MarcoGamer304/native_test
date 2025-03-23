@@ -1,5 +1,5 @@
 import Icon from "react-native-vector-icons/FontAwesome";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { Text, View, Image, TouchableOpacity } from "react-native";
 import PostProps from "../interfeces/componets/postProps";
 
 export default function Post({
@@ -12,33 +12,63 @@ export default function Post({
   destacados,
 }: PostProps): JSX.Element {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Image source={{ uri: avatar }} style={styles.avatar} />
-        <View style={styles.tweetContent}>
-          <View style={styles.headerContainer}>
-            <Text style={styles.username}>{user}</Text>
+    <View
+      className="border"
+      style={{
+        marginTop: 10,
+        width: 380,
+        borderColor: "#dde1e6",
+        borderRadius: 24,
+        backgroundColor: "#dde1e6",
+        paddingVertical: 10,
+        paddingHorizontal: 15,
+      }}
+    >
+      <View className="flex flex-row items-start">
+        <Image
+          source={{ uri: avatar }}
+          className="w-14 h-14 rounded-full"
+          style={{ marginRight: 10 }}
+        />
+        <View className="flex-1">
+          <View className="flex flex-row justify-between items-center">
+            <Text style={{ fontWeight: "bold", fontSize: 16 }}>{user}</Text>
             <Icon name="comments" size={20} color="#000" />
           </View>
-          <Text style={styles.tweetText}>{message}</Text>
+          <Text style={{ fontSize: 15, marginTop: 2 }}>{message}</Text>
         </View>
       </View>
 
-      <View style={styles.actions}>
-        <TouchableOpacity style={styles.actionButton}>
-          <Text style={styles.actionText}> {comments}</Text>
+      <View
+        className="flex flex-row justify-around"
+        style={{ justifyContent: "space-around", marginTop: 10 }}
+      >
+        <TouchableOpacity
+          className="py-1.25 flex  content-center justify-center"
+          style={{ paddingVertical: 5, flexDirection: "row-reverse" }}
+        >
+          <Text className="text-sm"> {comments.length}</Text>
           <Icon name="comments" size={20} color="blue" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.actionButton}>
-          <Text style={styles.actionText}> {likes}</Text>
+        <TouchableOpacity
+          className="py-1.25 flex  content-center justify-center"
+          style={{ paddingVertical: 5, flexDirection: "row-reverse" }}
+        >
+          <Text className="text-sm"> {likes}</Text>
           <Icon name="heart" size={20} color="#FF0000" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.actionButton}>
-          <Text style={styles.actionText}> {shares}</Text>
+        <TouchableOpacity
+          className="py-1.25 flex  content-center justify-center"
+          style={{ paddingVertical: 5, flexDirection: "row-reverse" }}
+        >
+          <Text className="text-sm"> {shares}</Text>
           <Icon name="share" size={20} color="white" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.actionButton}>
-          <Text style={styles.actionText}></Text>
+        <TouchableOpacity
+          className="py-1.25 flex  content-center justify-center"
+          style={{ paddingVertical: 5, flexDirection: "row-reverse" }}
+        >
+          <Text className="text-sm"></Text>
           <Icon
             name="comments"
             size={20}
@@ -49,61 +79,3 @@ export default function Post({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 10,
-    width: 380,
-    borderWidth: 1,
-    borderColor: "#dde1e6",
-    borderRadius: 24,
-    backgroundColor: "#dde1e6",
-    borderBottomColor: "#dde1e6",
-    paddingVertical: 10,
-    paddingHorizontal: 15,
-  },
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  avatar: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    marginRight: 10,
-  },
-  tweetContent: {
-    flex: 1,
-  },
-  username: {
-    fontWeight: "bold",
-    fontSize: 16,
-  },
-  tweetText: {
-    fontSize: 14,
-    color: "#14171A",
-    marginTop: 2,
-  },
-  actions: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    marginTop: 10,
-  },
-  actionButton: {
-    paddingVertical: 5,
-    display: "flex",
-    alignContent: "center",
-    justifyContent: "center",
-    flexDirection: "row-reverse",
-  },
-  actionText: {
-    fontSize: 14,
-    color: "#657786",
-  },
-  headerContainer: {
-    flex: 1,
-    justifyContent: "space-between",
-    alignContent: "center",
-    flexDirection: "row",
-  },
-});

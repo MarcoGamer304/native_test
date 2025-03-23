@@ -4,7 +4,7 @@ import ScreenBorder from "../../../components/essential/ScreenBorders";
 
 export default function ChatScreen() {
   return (
-    <ScreenBorder header={false} scrollable={true} searchBar={false}>
+    <ScreenBorder header={false}  searchBar={false}>
       <Text>hacer sistema de mensajeria</Text>
     </ScreenBorder>
   );

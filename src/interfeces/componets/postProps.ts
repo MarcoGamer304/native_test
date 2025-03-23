@@ -1,5 +1,5 @@
 export default interface PostProps {
-  id?: number;
+  id: number;
   user: string;
   message: string;
   avatar: string;

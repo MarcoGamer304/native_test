@@ -10,10 +10,13 @@ export default function SideMenu() {
   return (
     <Stack.Navigator
       screenOptions={{
-        drawerLabelStyle: barStyles.tabBarLabelStyle,
-        drawerActiveTintColor: "white",
+        drawerLabelStyle: { fontSize: 12, fontWeight: "bold" },
+        drawerActiveTintColor: "black",
         drawerInactiveTintColor: "gray",
-        drawerStyle: barStyles.tabBarStyle,
+        drawerStyle: {
+          backgroundColor: "#fff",
+          borderTopWidth: 0,
+        },
         headerShown: false,
       }}
     >
@@ -43,11 +46,3 @@ export default function SideMenu() {
   );
 }
 
-const barStyles = StyleSheet.create({
-  tabBarLabelStyle: { fontSize: 12, fontWeight: "bold" },
-  tabBarBadgeStyle: { backgroundColor: "red", color: "white" },
-  tabBarStyle: {
-    backgroundColor: "#1e1e1e",
-    borderTopWidth: 0,
-  },
-});

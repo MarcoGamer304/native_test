@@ -1,5 +1,5 @@
 export default interface recordsProps {
-  id?: number;
+  id: number;
   user: string;
   avatar: string;
   notification: string;

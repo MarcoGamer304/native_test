@@ -1,4 +1,3 @@
-import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import tabsProps from "../interfeces/componets/routes/tabsProps";
@@ -16,9 +15,13 @@ export default function TopTabsNavigator({
       screenOptions={{
         tabBarActiveTintColor: "black",
         tabBarInactiveTintColor: "gray",
-        tabBarLabelStyle: barStyles.tabBarLabelStyle,
-        tabBarBadgeStyle: barStyles.tabBarBadgeStyle,
-        tabBarStyle: barStyles.tabBarStyle,
+        tabBarLabelStyle: { fontSize: 12, fontWeight: "bold" },
+        tabBarBadgeStyle: { backgroundColor: "red", color: "white" },
+        tabBarStyle: {
+          backgroundColor: "#fff",
+          paddingTop: "2%",
+          height: "10%",
+        },
         headerShown: false,
         tabBarPosition: "top",
       }}
@@ -38,13 +41,3 @@ export default function TopTabsNavigator({
     </Tab.Navigator>
   );
 }
-
-const barStyles = StyleSheet.create({
-  tabBarLabelStyle: { fontSize: 12, fontWeight: "bold" },
-  tabBarBadgeStyle: { backgroundColor: "red", color: "white" },
-  tabBarStyle: {
-    backgroundColor: "#fff",
-    paddingTop: "2%",
-    height: "10%",
-  },
-});

@@ -1,5 +1,5 @@
 import notificationProps from "../interfeces/componets/notificationProps";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { Text, View, Image } from "react-native";
 
 export default function Notification({
   message,
@@ -13,45 +13,32 @@ export default function Notification({
   ]);
 
   return (
-    <View style={styles.container}>
-      <Image source={{ uri: avatar }} style={styles.avatar} />
-      <View style={styles.message}>
-        <Text style={styles.textUser}>{user} </Text>
-        <Text style={styles.text}>{notificationMap.get(message)}</Text>
+    <View
+      className="flex flex-row items-center justify-start my-1.5 h-12 rounded-full"
+      style={{
+        margin: 2,
+        height: 50,
+        width: 380,
+        backgroundColor: "gray",
+      }}
+    >
+      <Image
+        source={{ uri: avatar }}
+        className="mx-3 rounded-full"
+        style={{
+          width: 40,
+          height: 40,
+        }}
+      />
+      <View className="flex flex-row justify-center items-center mx-0.5">
+        <Text
+          className="text-base font-extrabold"
+          style={{ fontWeight: "bold" }}
+        >
+          {user}{" "}
+        </Text>
+        <Text className="text-base">{notificationMap.get(message)}</Text>
       </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "flex-start",
-    margin: 2,
-    height: 50,
-    width: "95%",
-    backgroundColor: "gray",
-    borderRadius: 20,
-  },
-  avatar: {
-    width: 40,
-    height: 40,
-    marginHorizontal: 15,
-    borderRadius: 30,
-  },
-  text: {
-    fontSize: 15,
-  },
-  textUser: {
-    fontSize: 15,
-    fontWeight: "bold",
-  },
-  message: {
-    display: "flex",
-    justifyContent: "center",
-    alignContent: "center",
-    flexDirection: "row",
-    margin: 2,
-  },
-});

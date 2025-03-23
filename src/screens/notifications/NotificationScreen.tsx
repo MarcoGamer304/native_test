@@ -1,17 +1,15 @@
 import Notification from "../../components/Notification";
 import notificationData from "../../provitionalData/notificationExamples";
 import ScreenBorder from "../../components/essential/ScreenBorders";
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
 
 export default function NotificationScreen() {
   return (
     <ScreenBorder
-      style={styles.container}
-      scrollable={false}
-      searchBar={true}
+      searchBar={false}
       header={true}
     >
-      <View style={styles.container}>
+      <View className="items-center">
         {notificationData.map((item) => (
           <Notification
             id={item.id}
@@ -25,15 +23,3 @@ export default function NotificationScreen() {
     </ScreenBorder>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#ddr1e6",
-    alignItems: "center",
-    justifyContent: "flex-start",
-  },
-  text: {
-    color: "white",
-  },
-});

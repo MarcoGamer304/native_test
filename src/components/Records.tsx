@@ -1,61 +1,37 @@
 import { useEffect, useState } from "react";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import recordsProps from "../interfeces/componets/recordsProps";
-import {
-    StyleSheet,
-    Text,
-    View,
-    Image
-} from "react-native";
+import { Text, View, Image } from "react-native";
 
-export default function Notification({ notification, avatar, user }: recordsProps) {
+export default function Records({ notification, avatar, user }: recordsProps) {
+  const [icon, setIcon] = useState("search");
 
-    const [icon, setIcon] = useState("search");
-
-    useEffect(() => {
-        if (user) { setIcon(avatar) }
-    }, []);
-
-    return (
-        <View style={styles.container}>
-            {
-                icon !== "search" ? <Image source={{ uri: avatar }} style={styles.avatar} /> :
-                    <FontAwesome name={icon} color={"black"} size={styles.avatar.width} />
-            }
-            <Text style={styles.text}>{notification}</Text>
-        </View>
-    );
-}
-
-const styles = StyleSheet.create({
-    container: {
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "flex-start",
-        margin: 2,
-        height: 50,
-        width: "95%",
-        backgroundColor: "gray",
-        borderRadius: 20,
-        paddingHorizontal: 15,
-      },
-    avatar: {
-        width: 40,
-        height: 40,
-        borderRadius: 30
-    }, text: {
-        fontSize: 15,
-        paddingHorizontal: 15,
-    },
-    textUser: {
-        fontSize: 15,
-        fontWeight: "bold"
-    },
-    message: {
-        display: "flex",
-        justifyContent: "center",
-        alignContent: "center",
-        flexDirection: "row",
-        margin: 2
+  useEffect(() => {
+    if (user) {
+      setIcon(avatar);
     }
-});
+  }, []);
+
+  return (
+    <View
+      className="flex flex-row items-center justify-start my-0.5 h-14 w-[380px] rounded-full px-4"
+      style={{
+        margin: 2,
+        width: 380,
+        backgroundColor: "gray",
+        paddingHorizontal: 15,
+      }}
+    >
+      {icon !== "search" ? (
+        <Image
+          source={{ uri: avatar }}
+          className="rounded-full"
+          style={{ width: 40, height: 40 }}
+        />
+      ) : (
+        <FontAwesome name={icon} color={"black"} size={40} />
+      )}
+      <Text className="text-base mx-4">{notification}</Text>
+    </View>
+  );
+}
