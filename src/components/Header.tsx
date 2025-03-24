@@ -15,7 +15,7 @@ export default function Header({
   const navigation = useNavigation<NavigationType>();
 
   return (
-    <View className="flex-row items-center h-50 justify-between w-full">
+    <View className="flex-row items-center h-50 justify-between w-full" style={{ paddingBottom: 10, borderBottomColor: "#dde1e6", borderBottomWidth: 1 }}>
       <Pressable onPress={() => navigation.openDrawer()}>
         <Image
           source={{ uri: avatar }}

@@ -14,12 +14,13 @@ export default function Notification({
 
   return (
     <View
-      className="flex flex-row items-center justify-start my-1.5 h-12 rounded-full"
+      className="flex flex-row items-center justify-start my-1.3 h-12 rounded-full"
       style={{
-        margin: 2,
         height: 50,
         width: 380,
-        backgroundColor: "gray",
+        backgroundColor: "white",
+        borderBottomColor: "#dde1e6",
+        borderBottomWidth: 1,
       }}
     >
       <Image

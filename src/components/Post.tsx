@@ -17,11 +17,14 @@ export default function Post({
       style={{
         marginTop: 10,
         width: 380,
-        borderColor: "#dde1e6",
-        borderRadius: 24,
-        backgroundColor: "#dde1e6",
-        paddingVertical: 10,
-        paddingHorizontal: 15,
+       // borderColor: "#ffffff",
+        borderWidth: 0,
+        borderBottomWidth: 1,
+        borderBottomColor: "#dde1e6",
+       // borderRadius: 24,
+        //backgroundColor: "#dde1e6",
+        paddingVertical: 1.5,
+        paddingHorizontal: 8,
       }}
     >
       <View className="flex flex-row items-start">
@@ -48,7 +51,7 @@ export default function Post({
           style={{ paddingVertical: 5, flexDirection: "row-reverse" }}
         >
           <Text className="text-sm"> {comments.length}</Text>
-          <Icon name="comments" size={20} color="blue" />
+          <Icon name="comments" size={20} color="black" />
         </TouchableOpacity>
         <TouchableOpacity
           className="py-1.25 flex  content-center justify-center"
@@ -62,7 +65,7 @@ export default function Post({
           style={{ paddingVertical: 5, flexDirection: "row-reverse" }}
         >
           <Text className="text-sm"> {shares}</Text>
-          <Icon name="share" size={20} color="white" />
+          <Icon name="share" size={20} color="black" />
         </TouchableOpacity>
         <TouchableOpacity
           className="py-1.25 flex  content-center justify-center"
@@ -72,7 +75,7 @@ export default function Post({
           <Icon
             name="comments"
             size={20}
-            color={destacados === true ? "blue" : "white"}
+            color={destacados === true ? "blue" : "black"}
           />
         </TouchableOpacity>
       </View>

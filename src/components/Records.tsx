@@ -18,7 +18,9 @@ export default function Records({ notification, avatar, user }: recordsProps) {
       style={{
         margin: 2,
         width: 380,
-        backgroundColor: "gray",
+        backgroundColor: "white",
+        borderBottomColor: "#dde1e6",
+        borderBottomWidth: 1,
         paddingHorizontal: 15,
       }}
     >

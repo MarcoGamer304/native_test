@@ -3,16 +3,18 @@ import { View, SafeAreaView } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Header from "../Header";
 import ScreenBorderProps from "../../interfeces/componets/essential/screenBorderProps";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function ScreenBorder({
   children,
   header = true,
   searchBar = false
 }: ScreenBorderProps): JSX.Element {
+  const insets = useSafeAreaInsets();
   return (
     <View className="flex-1 bg-white items-center justify-start">
       <SafeAreaProvider>
-        <SafeAreaView>
+        <View style={{ paddingTop: insets.top+10, paddingBottom: insets.bottom, paddingLeft: insets.left, paddingRight: insets.right}} className="flex-1 w-full">
           {header ? (
             <Header
               avatar={"https://randomuser.me/api/portraits/women/2.jpg"}
@@ -22,7 +24,7 @@ export default function ScreenBorder({
             <></>
           )}
           <View className="flex-1">{children}</View>
-        </SafeAreaView>
+        </View>
       </SafeAreaProvider>
     </View>
   );

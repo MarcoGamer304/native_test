@@ -5,8 +5,8 @@ import recordsData from "../../../provitionalData/records";
 
 export default function RecordScreen() {
   return (
-    <ScreenBorder header={false} searchBar={false}>
-      <View className="items-center">
+    <ScreenBorder header={false} searchBar={false} >
+      <View className="items-center" >
         <FlatList
           data={recordsData}
           keyExtractor={(item) => item.id.toString()}

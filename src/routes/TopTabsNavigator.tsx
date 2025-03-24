@@ -18,7 +18,7 @@ export default function TopTabsNavigator({
         tabBarLabelStyle: { fontSize: 12, fontWeight: "bold" },
         tabBarBadgeStyle: { backgroundColor: "red", color: "white" },
         tabBarStyle: {
-          backgroundColor: "#fff",
+          backgroundColor: "white",
           paddingTop: "2%",
           height: "10%",
         },
