@@ -7,4 +7,5 @@ export default interface PostProps {
   likes: number;
   shares: number;
   destacados: boolean;
+  bookmark: boolean;
 }
