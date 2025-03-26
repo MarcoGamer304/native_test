@@ -1,7 +1,7 @@
 import { Text } from "react-native";
 import ScreenBorder from "../../../components/essential/ScreenBorders";
 
-export default function SecurityScreen() {
+export default function CommunityScreen() {
   return (
     <ScreenBorder
       header={true}

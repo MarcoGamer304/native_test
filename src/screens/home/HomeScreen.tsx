@@ -20,6 +20,7 @@ export default function HomeScreen() {
               likes={item.likes}
               shares={item.shares}
               destacados={item.destacados}
+              bookmark={item.bookmark}
             />
           )}
           showsVerticalScrollIndicator={false}
