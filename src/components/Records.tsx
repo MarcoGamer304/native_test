@@ -14,11 +14,10 @@ export default function Records({ notification, avatar, user }: recordsProps) {
 
   return (
     <View
-      className="flex flex-row items-center justify-start my-0.5 h-14 w-[380px] rounded-full px-4"
+      className="flex flex-row items-center justify-start my-1.1 h-14 w-[380px] px-4"
       style={{
-        margin: 2,
         width: 380,
-        backgroundColor: "white",
+        backgroundColor: "#f5f5f5",
         borderBottomColor: "#dde1e6",
         borderBottomWidth: 1,
         paddingHorizontal: 15,
@@ -31,7 +30,7 @@ export default function Records({ notification, avatar, user }: recordsProps) {
           style={{ width: 40, height: 40 }}
         />
       ) : (
-        <FontAwesome name={icon} color={"black"} size={40} />
+        <FontAwesome name={icon} color={"#1e1e1e"} size={35} />
       )}
       <Text className="text-base mx-4">{notification}</Text>
     </View>

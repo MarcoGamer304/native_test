@@ -12,7 +12,7 @@ export default function ScreenBorder({
 }: ScreenBorderProps): JSX.Element {
   const insets = useSafeAreaInsets();
   return (
-    <View className="flex-1 bg-white items-center justify-start">
+    <View className="flex-1 items-center justify-start" style={{ backgroundColor: "#f5f5f5" }}>
       <SafeAreaProvider>
         <View style={{ paddingTop: insets.top+10, paddingBottom: insets.bottom, paddingLeft: insets.left, paddingRight: insets.right}} className="flex-1 w-full">
           {header ? (
