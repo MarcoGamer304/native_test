@@ -1,5 +1,6 @@
 import PostProps from "../interfeces/componets/postProps";
-
+import React from 'react';
+import { View, Text, Image, StyleSheet } from 'react-native';
 
 const tweets: PostProps[] = [
     {
@@ -11,6 +12,7 @@ const tweets: PostProps[] = [
       likes: 150,
       shares: 20,
       destacados: true,
+      bookmark: false,
     },
     {
       id: 2,
@@ -21,6 +23,7 @@ const tweets: PostProps[] = [
       likes: 95,
       shares: 10,
       destacados: true,
+      bookmark: false,
     },
     {
       id: 3,
@@ -31,6 +34,7 @@ const tweets: PostProps[] = [
       likes: 250,
       shares: 50,
       destacados: true,
+      bookmark: false,
     },
     {
       id: 4,
@@ -41,6 +45,7 @@ const tweets: PostProps[] = [
       likes: 70,
       shares: 15,
       destacados: false,
+      bookmark: false,
     },
     {
       id: 5,
@@ -51,26 +56,29 @@ const tweets: PostProps[] = [
       likes: 150,
       shares: 20,
       destacados: true,
+      bookmark: false,
     },
     {
       id: 6,
       user: "JaneDoe",
       avatar: "https://randomuser.me/api/portraits/women/6.jpg",
-      message: "Explorando nuevas tecnologías. ¿Alguna recomendación? 🤔",
+      message: "lorem ipsum",
       comments: ["HOLA", "HI", "test"],
       likes: 95,
       shares: 10,
       destacados: false,
+      bookmark: false,
     },
     {
       id: 7,
       user: "TechGuy",
       avatar: "https://randomuser.me/api/portraits/men/7.jpg",
-      message: "La inteligencia artificial cambiará el mundo 🌍💡",
+      message:  "https://randomuser.me/api/portraits/men/7.jpIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
       comments: ["HOLA", "HI", "test"],
       likes: 250,
       shares: 50,
       destacados: true,
+      bookmark: false,
     },
     {
       id: 8,
@@ -81,6 +89,7 @@ const tweets: PostProps[] = [
       likes: 70,
       shares: 15,
       destacados: false,
+      bookmark: false,
     },
   ];
 

@@ -5,11 +5,12 @@ import SecurityScreen from "../../screens/SideTabNavigator/security/SecurityScre
 import tabsProps from "../../interfeces/componets/routes/tabsProps";
 
 const sideTabs: tabsProps[] = [
-  { name: "Profile", component: ProfileScreen, icon: "user" },
-  { name: "Connections", component: ConnectionsScreen, icon: "search" },
-  { name: "Saved", component: SavedScreen, icon: "bookmark" },
-  { name: "Community", component: SecurityScreen, icon: "shield" },
-  { name: "Settings", component: ProfileScreen, icon: "cogs" }, // hacer menu desplegable
+  { name: "Profile", component: ProfileScreen, icon: "person-outline" },
+  { name: "Connections", component: ConnectionsScreen, icon: "link-outline" },
+  { name: "Saved", component: SavedScreen, icon: "bookmark-outline" },
+  { name: "Settings", component: SecurityScreen, icon: "settings-outline" },
+  { name: "About", component: ProfileScreen, icon: "help-circle-outline" }, // hacer menu desplegable
+  { name: "Theme", component: ProfileScreen, icon: "contrast-outline" }
 ];
 
 export default sideTabs;
