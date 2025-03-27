@@ -16,6 +16,7 @@ return (
         tabBarStyle: {
         backgroundColor: "#f5f5f5",
         borderTopWidth: 0,
+        paddingTop: -20,
         },
         headerShown: false,
     }}

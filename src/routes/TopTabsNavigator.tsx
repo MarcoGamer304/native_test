@@ -32,6 +32,7 @@ export default function TopTabsNavigator({
         tabBarIndicatorContainerStyle: {
           borderBottomWidth: 0.5,
           borderBottomColor: 'gray',
+          marginBottom: 0
         },
       }}
     >
