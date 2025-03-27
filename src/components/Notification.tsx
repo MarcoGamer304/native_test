@@ -18,7 +18,7 @@ export default function Notification({
       style={{
         height: 50,
         width: 380,
-        backgroundColor: "white",
+        backgroundColor: "#f5f5f5",
         borderBottomColor: "#dde1e6",
         borderBottomWidth: 1,
       }}

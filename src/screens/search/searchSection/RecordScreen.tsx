@@ -1,11 +1,9 @@
 import { View, StyleSheet, FlatList } from "react-native";
 import Records from "../../../components/Records";
-import ScreenBorder from "../../../components/essential/ScreenBorders";
 import recordsData from "../../../provitionalData/records";
 
 export default function RecordScreen() {
   return (
-    <ScreenBorder header={false} searchBar={false} >
       <View className="items-center">
         <FlatList
           data={recordsData}
@@ -22,7 +20,6 @@ export default function RecordScreen() {
           showsVerticalScrollIndicator={false}
         />
       </View>
-    </ScreenBorder>
   );
 }
 

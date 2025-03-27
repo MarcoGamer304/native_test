@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
+import FontAwesome from "react-native-vector-icons/Ionicons";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import sideTabs from "../components/routes/sideTabs";
 import BottomTabsNavigator from "./BottomTabsNavigator";
@@ -10,11 +10,11 @@ export default function SideMenu() {
   return (
     <Stack.Navigator
       screenOptions={{
-        drawerLabelStyle: { fontSize: 12, fontWeight: "bold" },
+        drawerLabelStyle: { fontSize: 14, fontWeight: "bold" },
         drawerActiveTintColor: "black",
         drawerInactiveTintColor: "gray",
         drawerStyle: {
-          backgroundColor: "#fff",
+          backgroundColor: "#f5f5f5",
           borderTopWidth: 0,
         },
         headerShown: false,
@@ -36,8 +36,8 @@ export default function SideMenu() {
           name={item.name}
           component={item.component}
           options={{
-            drawerIcon: ({ color, size }) => (
-              <FontAwesome name={item.icon} color={color} size={size} />
+            drawerIcon: ({ color }) => (
+              <FontAwesome name={item.icon} color={color} size={24} />
             ),
           }}
         />
