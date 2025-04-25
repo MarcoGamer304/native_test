@@ -2,6 +2,7 @@ import Notification from "../../components/Notification";
 import notificationData from "../../provitionalData/notificationExamples";
 import ScreenBorder from "../../components/essential/ScreenBorders";
 import { View } from "react-native";
+import FAB from "../../components/FAB";
 
 export default function NotificationScreen() {
   return (
@@ -20,6 +21,7 @@ export default function NotificationScreen() {
           />
         ))}
       </View>
+      <FAB />
     </ScreenBorder>
   );
 }

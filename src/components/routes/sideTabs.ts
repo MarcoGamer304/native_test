@@ -9,8 +9,8 @@ const sideTabs: tabsProps[] = [
   { name: "Connections", component: ConnectionsScreen, icon: "link-outline" },
   { name: "Saved", component: SavedScreen, icon: "bookmark-outline" },
   { name: "Settings", component: SecurityScreen, icon: "settings-outline" },
-  { name: "About", component: ProfileScreen, icon: "help-circle-outline" }, // hacer menu desplegable
-  { name: "Theme", component: ProfileScreen, icon: "contrast-outline" }
+  { name: "About", component: ProfileScreen, icon: "help-circle-outline" },
+  { name: "Theme", component: ProfileScreen, icon: "moon-outline" }
 ];
 
 export default sideTabs;

@@ -2,6 +2,8 @@ import { View, FlatList } from "react-native";
 import data from "../../provitionalData/twit";
 import Post from "../../components/Post";
 import ScreenBorder from "../../components/essential/ScreenBorders";
+import type PostProps from "../../interfeces/componets/postProps";
+import FAB from "../../components/FAB";
 
 export default function HomeScreen() {
   return (
@@ -9,8 +11,8 @@ export default function HomeScreen() {
       <View className="items-center">
         <FlatList
           data={data}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => (
+          keyExtractor={(item: PostProps) => item.id.toString()}
+          renderItem={({ item }: { item: PostProps }) => (
             <Post
               id={item.id}
               user={item.user}
@@ -21,11 +23,13 @@ export default function HomeScreen() {
               shares={item.shares}
               destacados={item.destacados}
               bookmark={item.bookmark}
+              image={item.image}
             />
           )}
           showsVerticalScrollIndicator={false}
         />
       </View>
+      <FAB />
     </ScreenBorder>
   );
 }
