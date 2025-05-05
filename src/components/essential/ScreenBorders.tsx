@@ -14,7 +14,7 @@ export default function ScreenBorder({
   return (
     <View className="flex-1 items-center justify-start" style={{ backgroundColor: "#f5f5f5" }}>
       <SafeAreaProvider>
-        <View style={{ paddingTop: insets.top+10, paddingBottom: insets.bottom, paddingLeft: insets.left, paddingRight: insets.right}} className="flex-1 w-full">
+        <View style={{ paddingTop: insets.top+10, paddingLeft: insets.left, paddingRight: insets.right}} className="flex-1 w-full">
           {header ? (
             <Header
               avatar={"https://randomuser.me/api/portraits/women/2.jpg"}
