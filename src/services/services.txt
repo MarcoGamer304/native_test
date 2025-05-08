@@ -1,1 +1,1 @@
-servicios globales
+global services
