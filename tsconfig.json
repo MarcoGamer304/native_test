@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "jsx": "react-native",
+    "noEmit": true,
+    "isolatedModules": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "extends": "expo/tsconfig.base",
+  "include": [
+    "src/**/*",
+    "node_modules/@types/react",
+    "node_modules/@types/react-native",
+    "nativewind-env.d.ts"
+  ]
+}
