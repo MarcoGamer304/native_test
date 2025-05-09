@@ -6,6 +6,7 @@ export default function Notification({
   avatar,
   user,
 }: notificationProps) {
+  
   const notificationMap: Map<string, string> = new Map([
     ["comment", "commented on your post"],
     ["like", "liked your post"],

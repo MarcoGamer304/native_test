@@ -1,6 +1,6 @@
 import Notification from "./components/Notification";
 import ScreenBorder from "../../components/ScreenBorders";
-import { View, Text, ActivityIndicator } from "react-native";
+import { View, Text, ActivityIndicator, FlatList } from "react-native";
 import FAB from "../../components/FAB";
 import useNotification from "./hooks/useNotification";
 
@@ -18,15 +18,18 @@ export default function NotificationScreen() {
   return (
     <ScreenBorder searchBar={false} header={true}>
       <View className="items-center">
-        {allNotifications?.map((item) => (
+         <FlatList
+        data={allNotifications || []}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
           <Notification
             id={item.id}
-            key={item.id}
             message={item.message}
             avatar={item.avatar}
             user={item.user}
           />
-        ))}
+        )}
+      />
       </View>
       <FAB />
     </ScreenBorder>

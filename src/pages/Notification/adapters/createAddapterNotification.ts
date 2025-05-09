@@ -4,11 +4,21 @@ import { notificationProps } from "../models/types/notificationProps";
 export const createAddapterNotification = (
   notification: EndpointNotification
 ): notificationProps => {
-  const formattedNotification: notificationProps = {
+  return {
+    id: notification.id,
     user: notification.user,
     avatar: notification.avatar,
     message: notification.message,
   };
+};
 
-  return formattedNotification;
+export const createAddapterAllNotification = (
+  notification: EndpointNotification[]
+): notificationProps[] => {
+  return notification.map((notification) => ({
+    id: notification.id,
+    user: notification.user,
+    avatar: notification.avatar,
+    message: notification.message,
+  }));
 };
