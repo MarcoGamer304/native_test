@@ -19,8 +19,8 @@ export default function TopTabsNavigator({
         },
         tabBarStyle: {
           backgroundColor: "#f5f5f5",
-          elevation: 0, // Elimina la sombra en Android
-          shadowOpacity: 0, // Elimina la sombra en iOS
+          elevation: 0, 
+          shadowOpacity: 0, 
         },
         tabBarIndicatorStyle: {
           backgroundColor: "#E63946",
