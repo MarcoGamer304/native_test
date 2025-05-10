@@ -1,4 +1,4 @@
-export type EndpointNotification = {
+export type TEndpointNotification = {
   id: number;
   user: string;
   avatar: string;

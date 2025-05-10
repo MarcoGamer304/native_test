@@ -1,6 +1,6 @@
-import { notificationProps } from "../models/types/notificationProps";
+import { TNotification } from "../models/types/TNotification";
 
-const notificationData: notificationProps[] = [
+const notificationData: TNotification[] = [
   {
     id: 1,
     user: "MarcoElizondo",

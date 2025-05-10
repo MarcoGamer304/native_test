@@ -1,10 +1,10 @@
 import { NotificationRepository } from "../../repositories/notificationRepository";
-import { notificationProps } from "../types/notificationProps";
+import { TNotification } from "../types/TNotification";
 
 export class PostNotificationUseCase {
   constructor(private notificationRepository: NotificationRepository) {}
 
-  async execute(data: notificationProps) {
-    return await this.notificationRepository.postNotification(data);
+  async execute(data: TNotification) {
+    return await this.notificationRepository.save(data);
   }
 }

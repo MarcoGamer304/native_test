@@ -4,6 +4,6 @@ export class GetNotificationUseCase {
   constructor(private notificationRepository: NotificationRepository) {}
 
   async execute(id: number) {
-    return await this.notificationRepository.getNotification(id);
+    return await this.notificationRepository.get(id);
   }
 }

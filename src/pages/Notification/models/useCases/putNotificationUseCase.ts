@@ -1,10 +1,10 @@
 import { NotificationRepository } from "../../repositories/notificationRepository";
-import { notificationProps } from "../types/notificationProps";
+import { TNotification } from "../types/TNotification";
 
 export class PutNotificationUseCase {
   constructor(private notificationRepository: NotificationRepository) {}
 
-  async execute(id: number, data: notificationProps) {
-    return await this.notificationRepository.putNotification(id, data);
+  async execute(id: number, data: TNotification) {
+    return await this.notificationRepository.put(id, data);
   }
 }

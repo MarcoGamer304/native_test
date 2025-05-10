@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   ImageSourcePropType,
 } from "react-native";
-import type { PostProps } from "../models/types/postProps";
+import type { TPost } from "../models/types/TPost";
 
 export default function Post({
   user,
@@ -15,13 +15,9 @@ export default function Post({
   comments,
   likes,
   shares,
-  destacados,
   bookmark,
   image,
-}: PostProps): JSX.Element {
-  {
-    console.log(avatar);
-  }
+}: TPost): JSX.Element {
   return (
     <View
       className="border"
@@ -110,7 +106,7 @@ export default function Post({
           <Icon
             name="bookmark-outline"
             size={20}
-            color={destacados ? "#000000" : "black"}
+            color={bookmark ? "#000000" : "black"}
           />
         </TouchableOpacity>
       </View>

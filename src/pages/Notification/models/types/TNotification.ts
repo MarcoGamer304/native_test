@@ -1,4 +1,4 @@
-export type notificationProps = {
+export type TNotification = {
   id: number;
   user: string;
   avatar: string;

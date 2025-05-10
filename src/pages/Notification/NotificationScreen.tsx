@@ -3,6 +3,7 @@ import ScreenBorder from "../../components/ScreenBorders";
 import { View, Text, ActivityIndicator, FlatList } from "react-native";
 import FAB from "../../components/FAB";
 import useNotification from "./hooks/useNotification";
+import { TNotification } from "./models/types/TNotification";
 
 export default function NotificationScreen() {
   const { allNotifications, loading, error, refresh } = useNotification(1);
@@ -18,18 +19,18 @@ export default function NotificationScreen() {
   return (
     <ScreenBorder searchBar={false} header={true}>
       <View className="items-center">
-         <FlatList
-        data={allNotifications || []}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <Notification
-            id={item.id}
-            message={item.message}
-            avatar={item.avatar}
-            user={item.user}
-          />
-        )}
-      />
+        <FlatList
+          data={allNotifications || []}
+          keyExtractor={(item: TNotification) => item.id.toString()}
+          renderItem={({ item }: { item: TNotification }) => (
+            <Notification
+              id={item.id}
+              message={item.message}
+              avatar={item.avatar}
+              user={item.user}
+            />
+          )}
+        />
       </View>
       <FAB />
     </ScreenBorder>

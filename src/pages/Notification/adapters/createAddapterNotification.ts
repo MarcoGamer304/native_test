@@ -1,9 +1,9 @@
-import { EndpointNotification } from "../models/types/EndPointNotification";
-import { notificationProps } from "../models/types/notificationProps";
+import { TEndpointNotification } from "../models/types/TEndPointNotification";
+import { TNotification } from "../models/types/TNotification";
 
 export const createAddapterNotification = (
-  notification: EndpointNotification
-): notificationProps => {
+  notification: TEndpointNotification
+): TNotification => {
   return {
     id: notification.id,
     user: notification.user,
@@ -13,8 +13,8 @@ export const createAddapterNotification = (
 };
 
 export const createAddapterAllNotification = (
-  notification: EndpointNotification[]
-): notificationProps[] => {
+  notification: TEndpointNotification[]
+): TNotification[] => {
   return notification.map((notification) => ({
     id: notification.id,
     user: notification.user,

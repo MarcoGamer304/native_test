@@ -1,4 +1,4 @@
-export type PostProps = {
+export type TEndpointPost = {
   id: number;
   user: string;
   avatar: string;
@@ -6,7 +6,6 @@ export type PostProps = {
   comments: string | string[];
   likes: number;
   shares: number;
-  destacados: boolean;
   bookmark: boolean;
   image?: string;
 };

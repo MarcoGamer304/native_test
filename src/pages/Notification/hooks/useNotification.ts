@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { notificationProps } from "../models/types/notificationProps";
+import { TNotification } from "../models/types/TNotification";
 import { NotificationRepository } from "../repositories/notificationRepository";
 import { GetAllNotificationsUseCase } from "../models/useCases/getAllNotificationsUseCase";
 import { createAddapterAllNotification } from "../adapters/createAddapterNotification";
 
 const useNotification = (id: number) => {
   const [allNotifications, setAllNotifications] = useState<
-    notificationProps[] | null
+    TNotification[] | null
   >(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);

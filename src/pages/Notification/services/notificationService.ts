@@ -1,7 +1,8 @@
 import notificationData from "../ProvisionalData/notificationExamples";
-import { notificationProps } from "../models/types/notificationProps";
+import { INotification } from "../models/interfaces/INotification";
+import { TNotification } from "../models/types/TNotification";
 //Singleton
-export class NotificationService {
+export class NotificationService implements INotification {
   private static instance: NotificationService;
 
   static getInstance(): NotificationService {
@@ -11,26 +12,23 @@ export class NotificationService {
     return NotificationService.instance;
   }
 
-  async getNotification(id: number): Promise<notificationProps | null> {
-    return null;
+  async get(id: number): Promise<TNotification> {
+    return notificationData[1];
   }
 
-  async getAllNotificationsByUser(id: number): Promise<notificationProps[] | null> {
+  async getByUser(id: number): Promise<TNotification[]> {
     return notificationData;
   }
 
-  async postNotification(data: any): Promise<notificationProps | null> {
-    return null;
+  async save(data: any): Promise<TNotification> {
+    return notificationData[1];
   }
 
-  async deleteNotification(id: number): Promise<notificationProps | null> {
-    return null;
+  async delete(id: number): Promise<TNotification> {
+    return notificationData[1];
   }
 
-  async putNotification(
-    id: number,
-    data: any
-  ): Promise<notificationProps | null> {
-    return null;
+  async put(id: number, data: any): Promise<TNotification> {
+    return notificationData[1];
   }
 }
