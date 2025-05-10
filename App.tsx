@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import SideMenu from "./src/routes/SideMenu";
+import SideMenu from "./src/routes/componets/SideMenu";
 import "./global.css"
 
 export default function App() {

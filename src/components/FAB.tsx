@@ -3,8 +3,8 @@ import { TouchableOpacity, StyleSheet, Animated } from "react-native";
 import FontAwesome from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 import { DrawerNavigationProp } from '@react-navigation/drawer';
-import { RootStackParamList } from "../types/navigation";
-import { tabBarAnimation } from '../routes/BottomTabsNavigator';
+import type { RootStackParamList } from '../models/types/navigation';
+import { tabBarAnimation } from '../routes/componets/BottomTabsNavigator';
 
 export default function FAB() {
   const navigation = useNavigation<DrawerNavigationProp<RootStackParamList>>();

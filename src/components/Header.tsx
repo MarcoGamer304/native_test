@@ -1,7 +1,7 @@
 import FontAwesome from "react-native-vector-icons/Ionicons";
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import HeaderProps from "../interfeces/componets/headerProps";
+import type { HeaderProps } from "../models/types/headerProps";
 import { DrawerNavigationProp } from "@react-navigation/drawer";
 import { View, Image, Pressable, TextInput, Text } from "react-native";
 
