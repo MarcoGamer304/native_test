@@ -18,7 +18,7 @@ export class LoginService implements ILogin {
       name: "marco@gmail.com",
       token: "marco",
     };
-    if (data.email !== "marco" || data.password !== "marco@gmail.com") {
+    if (data.email !== "marco@gmail.com" || data.password !== "marco") {
       throw new Error("Credentials error");
     }
     return await user;

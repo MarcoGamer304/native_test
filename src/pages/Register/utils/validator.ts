@@ -6,7 +6,7 @@ export function validateEmail(email: string) {
 }
 
 export function validateBirthday(birthday: string) {
-  const birthdayRegex = /^\d{4}-\d{2}-\d{2}$/;
+  const birthdayRegex = /^\d{2}-\d{2}-\d{4}$/;
   if (!birthdayRegex.test(birthday)) {
     throw new Error("birday not valid");
   }
