@@ -4,6 +4,7 @@ import { PostLoginUseCase } from "../models/useCases/postLoginUseCase";
 import { createAddapterLogin } from "../adapters/createAddapterLogin";
 import { TLogin } from "../models/types/TLogin";
 import { TUser } from "../../../models/types/TUser";
+import { validateEmail, checkInput } from "../utils/validator";
 
 const useLogin = () => {
   const [user, setUser] = useState<TUser | null>(null);
@@ -15,6 +16,8 @@ const useLogin = () => {
 
   const requestUser = async (data: TLogin) => {
     try {
+      checkInput(data.email, data.password);
+      validateEmail(data.email);
       setLoading(true);
       const result = await postLoginUseCase.execute(data);
       const formatted: TUser = createAddapterLogin(result);

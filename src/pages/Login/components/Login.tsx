@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   View,
   TextInput,
@@ -6,7 +6,6 @@ import {
   Text,
   StyleSheet,
   ActivityIndicator,
-  Alert,
 } from "react-native";
 import { TNavigation } from "../models/types/TNavigation";
 import useLogin from "../hooks/useLogin";
@@ -19,10 +18,6 @@ export default function Login({ navigation }: TNavigation) {
   const { requestUser, user, loading, error } = useLogin();
 
   const handleLogin = async () => {
-    if (!email || !password) {
-      Alert.alert("Error", "Por favor ingresa email y contraseña");
-      return;
-    }
     const loginData: TLogin = { email, password };
     requestUser(loginData);
 
@@ -50,11 +45,19 @@ export default function Login({ navigation }: TNavigation) {
         onChangeText={setPassword}
         value={password}
       />
+
       {loading ? (
         <ActivityIndicator size="large" />
       ) : (
         <Button title="Iniciar sesión" onPress={handleLogin} />
       )}
+
+      <Button
+        title="Sign in"
+        onPress={() => {
+          navigation.replace("Register");
+        }}
+      />
       {error && <Text style={styles.error}>Error: {error}</Text>}
     </View>
   );

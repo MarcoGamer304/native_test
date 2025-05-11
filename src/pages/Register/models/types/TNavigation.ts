@@ -7,5 +7,5 @@ type StackParamList = {
 };
 
 export type TNavigation = {
-  navigation: NativeStackNavigationProp<StackParamList, "Login">;
+  navigation: NativeStackNavigationProp<StackParamList, "Register">;
 };

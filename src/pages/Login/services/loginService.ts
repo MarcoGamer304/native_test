@@ -15,10 +15,10 @@ export class LoginService implements ILogin {
   async save(data: TLogin): Promise<TEndpointLogin> {
     const user: TEndpointLogin = {
       id: 2,
-      name: "marco",
+      name: "marco@gmail.com",
       token: "marco",
     };
-    if(data.email !== "test" || data.password !== "test"){
+    if (data.email !== "marco" || data.password !== "marco@gmail.com") {
       throw new Error("Credentials error");
     }
     return await user;
