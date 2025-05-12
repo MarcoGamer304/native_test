@@ -1,10 +1,15 @@
 import { StyleSheet, View, Text, Image } from "react-native";
 import FontAwesome from "react-native-vector-icons/Ionicons";
-import { createDrawerNavigator, DrawerContentComponentProps, DrawerItem } from "@react-navigation/drawer";
+import {
+  createDrawerNavigator,
+  DrawerContentComponentProps,
+  DrawerItem,
+} from "@react-navigation/drawer";
 import { DrawerContentScrollView } from "@react-navigation/drawer";
 import sideTabs from "../sideTabs";
 import BottomTabsNavigator from "./BottomTabsNavigator";
 import CreatePostScreen from "../../pages/Post/CreatePostScreen";
+import LoginScreen from "../../pages/Login/LoginScreen";
 
 const Stack = createDrawerNavigator();
 
@@ -12,7 +17,7 @@ function CustomDrawerContent(props: DrawerContentComponentProps) {
   return (
     <DrawerContentScrollView {...props}>
       <View style={styles.profileSection}>
-        <Image 
+        <Image
           source={{ uri: "https://randomuser.me/api/portraits/men/1.jpg" }}
           style={styles.avatar}
         />
@@ -34,26 +39,44 @@ function CustomDrawerContent(props: DrawerContentComponentProps) {
         icon={({ color, size }) => (
           <FontAwesome name="home-outline" color={color} size={size} />
         )}
-        onPress={() => props.navigation.navigate('Home')}
+        onPress={() => props.navigation.navigate("Home")}
       />
-      {sideTabs.filter(item => item.name !== "Theme").map((item) => (
-        <DrawerItem
-          key={item.name}
-          label={item.name}
-          icon={({ color }) => (
-            <FontAwesome name={item.icon} color={color} size={24} />
-          )}
-          onPress={() => props.navigation.navigate(item.name)}
-        />
-      ))}
+      {sideTabs
+        .filter((item) => item.name !== "Theme")
+        .map((item) => (
+          <DrawerItem
+            key={item.name}
+            label={item.name}
+            icon={({ color }) => (
+              <FontAwesome name={item.icon} color={color} size={24} />
+            )}
+            onPress={() => props.navigation.navigate(item.name)}
+          />
+        ))}
       <View style={{ flex: 1 }} />
       <DrawerItem
-        label={''}
+        label={""}
         icon={({ color }) => (
-          <FontAwesome name={sideTabs.find(item => item.name === "Theme")?.icon || "moon-outline"} color={color} size={34} />
+          <FontAwesome
+            name={
+              sideTabs.find((item) => item.name === "Theme")?.icon ||
+              "moon-outline"
+            }
+            color={color}
+            size={34}
+          />
         )}
-        onPress={() => props.navigation.navigate('Theme')}
-        style={{ position: 'absolute', left: 0, bottom: -200, width: 66, height: 66, borderRadius: 33, alignItems: 'flex-start', paddingLeft: 16}}
+        onPress={() => props.navigation.navigate("Theme")}
+        style={{
+          position: "absolute",
+          left: 0,
+          bottom: -200,
+          width: 66,
+          height: 66,
+          borderRadius: 33,
+          alignItems: "flex-start",
+          paddingLeft: 16,
+        }}
       />
     </DrawerContentScrollView>
   );
@@ -76,14 +99,9 @@ export default function SideMenu() {
         }}
         drawerContent={(props) => <CustomDrawerContent {...props} />}
       >
-        <Stack.Screen
-          name="Home"
-          component={BottomTabsNavigator}
-        />
-        <Stack.Screen
-          name="CreatePost"
-          component={CreatePostScreen}
-        />
+        <Stack.Screen name="Post" component={BottomTabsNavigator} />
+        <Stack.Screen name="CreatePost" component={CreatePostScreen} />
+
         {sideTabs.map((item) => (
           <Stack.Screen
             key={item.name}
