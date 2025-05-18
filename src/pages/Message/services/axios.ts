@@ -17,7 +17,7 @@ export default class AxiosService {
     return AxiosService.instance;
   }
 
-  async get(url: string) {
+  get = async (url: string) => {
     return this.axiosInstance
       .get(url)
       .then((response) => {
@@ -27,7 +27,7 @@ export default class AxiosService {
         console.error("Error in GET request:", error);
         throw error;
       });
-  }
+  };
 
   async post(url: string, data: any) {
     return this.axiosInstance

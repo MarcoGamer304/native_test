@@ -3,7 +3,7 @@ import { io, Socket } from "socket.io-client";
 export default class WebSocketService {
   private static instance: WebSocketService;
   private socket: Socket | null = null;
-  private url = "http://192.168.100.39:3000";
+  private url = "http://192.168.100.12:3000";
 
   private constructor() {}
 
@@ -19,28 +19,71 @@ export default class WebSocketService {
       this.socket = io(this.url, {
         transports: ["websocket"],
       });
-      console.log(this.socket.active);
+      console.log("Conectado:", this.socket.active);
     }
   }
 
-  sendMessage(message: string) {
+  register(userId: number, groupIds: number[]) {
     if (this.socket) {
-      this.socket.emit("p2pMessage", {
-        message: message + "from" + this.socket.id,
-      });
+      this.socket.emit("register", { userId, groupIds });
     } else {
       this.connect();
+      setTimeout(() => this.register(userId, groupIds), 500);
     }
   }
 
-  sendRoomMessage(message: string, room: string) {
+  onUserMessages(callback: (data: any) => void) {
     if (this.socket) {
-      this.socket.emit("roomMessage", {
-        message: message + "from " + this.socket.id,
-        room: room,
+      this.socket.on("user_messages", callback);
+    }
+  }
+
+  sendMessage(sender_id: number, recipient_id: number, content: string) {
+    if (this.socket) {
+      this.socket.emit("private_message", {
+        sender_id,
+        recipient_id,
+        content,
+        created_at: new Date(),
+        updated_at: new Date(),
       });
-    } else {
-      this.connect();
+   
+    }
+  }
+
+  sendRoomMessage(sender_id: number, groupId: number, content: string) {
+    if (this.socket) {
+      this.socket.emit("group_message", {
+        sender_id,
+        groupId,
+        content,
+        created_at: new Date(),
+        updated_at: new Date(),
+      });
+    }
+  }
+
+  onPrivateMessage(callback: (data: any) => void) {
+    if (this.socket) {
+      this.socket.on("new_private_message", callback);
+    }
+  }
+
+  onGroupMessage(callback: (data: any) => void) {
+    if (this.socket) {
+      this.socket.on("new_group_message", callback);
+    }
+  }
+
+  onMessageSent(callback: (data: any) => void) {
+    if (this.socket) {
+      this.socket.on("message_sent", callback);
+    }
+  }
+
+  onMessageError(callback: (error: any) => void) {
+    if (this.socket) {
+      this.socket.on("message_error", callback);
     }
   }
 
