@@ -9,36 +9,43 @@ import WebSocketService from "../services/webSockets";
 import AxiosService from "../services/axios";
 import { useState, useEffect } from "react";
 import Messages from "../components/Messages";
+import { obtenerIdUsuario } from "../../../utilities/AsyncStorage";
 
 export default function ChatScreen() {
   const WebSocket = WebSocketService.getInstance();
   const Axios = AxiosService.getInstance();
 
   const [text, setText] = useState<string>("");
-  const [senderId] = useState<number>(1);
-  const [recipientId] = useState<number>(7);
+  const [senderId, setSenderId] = useState<number>(1);
+  const [recipientId] = useState<number>(2);
   const [messages, setMessages] = useState<any[]>([]);
 
   useEffect(() => {
-    WebSocket.connect();
-    WebSocket.register(senderId, [101]);
+    const init = async () => {
+      const id = await obtenerIdUsuario();
+      setSenderId(id);
 
-    WebSocket.onPrivateMessage((data) => {
-      console.log("Mensaje privado recibido:", data); 
-      handleGetMessages()  
-    });
+      WebSocket.connect();
+      WebSocket.register(id, [101]);
 
-    WebSocket.onMessageSent((data) => {
-      console.log("Mensaje enviado (confirmación del servidor):", data);
-      handleGetMessages()
-    });
+      WebSocket.onPrivateMessage((data) => {
+        console.log("Mensaje privado recibido:", data);
+        handleGetMessages();
+      });
 
-    WebSocket.onMessageError((error) => {
-      console.log("Error en el envío:", error);
- 
-    });
+      WebSocket.onMessageSent((data) => {
+        console.log("Mensaje enviado:", data);
+        handleGetMessages();
+      });
 
-    handleGetMessages()
+      WebSocket.onMessageError((error) => {
+        console.log("Error en el envío:", error);
+      });
+
+      handleGetMessages();
+    };
+
+    init();
 
     return () => {
       WebSocket.disconnect();
