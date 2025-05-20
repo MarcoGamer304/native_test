@@ -10,7 +10,7 @@ export default function TeamsScreen() {
       <Text> Hacer sistema teams messages</Text>
       <TouchableOpacity
         onPress={() => {
-          WebSocket.sendRoomMessage("room message", "room1");
+          WebSocket.sendRoomMessage(1, 1, "room message");
         }}
       >
         <Text>hola</Text>

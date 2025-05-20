@@ -1,3 +1,4 @@
+import { guardarIdUsuario } from "../../../utilities/AsyncStorage";
 import { ILogin } from "../models/interfaces/ILogin";
 import { TEndpointLogin } from "../models/types/TEndpointLogin";
 import { TLogin } from "../models/types/TLogin";
@@ -18,9 +19,13 @@ export class LoginService implements ILogin {
       name: "marco@gmail.com",
       token: "marco",
     };
-    if (data.email !== "marco@gmail.com" || data.password !== "marco") {
-      throw new Error("Credentials error");
+
+    if (data.password === "marco") {
+      guardarIdUsuario(1);
+    } else {
+      guardarIdUsuario(2);
     }
+
     return await user;
   }
 }
