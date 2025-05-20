@@ -7,7 +7,8 @@ import SideMenu from "./src/routes/componets/SideMenu";
 import "./global.css";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./src/pages/Login/LoginScreen";
-import RegisterScreen from "./src/pages/Register/RegisterScreen"
+import RegisterScreen from "./src/pages/Register/RegisterScreen";
+import AccessScreen from "./src/pages/Access/Access";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,7 +18,8 @@ export default function App() {
       <SafeAreaProvider>
         <NavigationContainer>
           <StatusBar style="dark" />
-          <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
+          <Stack.Navigator initialRouteName="Access" screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="Access" component={AccessScreen} />
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="Home" component={SideMenu} />
             <Stack.Screen name="Register" component={RegisterScreen} />
