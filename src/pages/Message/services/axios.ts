@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default class AxiosService {
   private static instance: AxiosService;
-  private url = "http://192.168.56.1:3000";
+  private url = "http://192.168.100.191:3000/api/teams";
 
   private axiosInstance = axios.create({
     baseURL: this.url,

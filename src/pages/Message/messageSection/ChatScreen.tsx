@@ -68,7 +68,7 @@ export default function ChatScreen() {
   const handleGetMessages = async () => {
     try {
       const response = await Axios.get(
-        "http://192.168.100.12:3000/api/messages/1/all"
+        "http://192.168.100.191:3000/api/messages/1/all"
       );
 
       if (!response) {

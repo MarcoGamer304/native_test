@@ -40,7 +40,7 @@ export default function Header({
           />
         </View>
       ) : (
-        <Text className="text-2xl font-bold mx-5" style={{ fontFamily: 'Nunito' }}>RAID</Text>
+        <Text className="text-2xl font-bold mx-5" style={{ fontFamily: 'Nunito', color: "#e63946"}}>RAID</Text>
       )}
     </View>
   );

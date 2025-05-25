@@ -1,10 +1,14 @@
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { useNavigation } from '@react-navigation/native';
 import Icon from "react-native-vector-icons/Ionicons";
+import { FlatList } from 'react-native';
+import Post from '../../components/Post';
+import tweets from '../../provitionalData/twit';
 
 export default function ProfileScreen() {
   const navigation = useNavigation();
+  const [activeTab, setActiveTab] = useState('Games');
   return (
     <View style={{ flex: 1, backgroundColor: '#fff' }}>
       {}
@@ -45,10 +49,33 @@ export default function ProfileScreen() {
         </View>
       </View>
       <View style={styles.tabsRow}>
-        <View style={styles.tabActive}><Text style={styles.tabTextActive}>Games</Text></View>
-        <View style={styles.tab}><Text style={styles.tabText}>Posts</Text></View>
-        <View style={styles.tab}><Text style={styles.tabText}>Replies</Text></View>
-        <View style={styles.tab}><Text style={styles.tabText}>Liked</Text></View>
+        {['Games', 'Posts', 'Replies', 'Liked'].map(tab => (
+          <TouchableOpacity
+            key={tab}
+            style={activeTab === tab ? styles.tabActive : styles.tab}
+            onPress={() => setActiveTab(tab)}
+            activeOpacity={0.7}
+          >
+            <Text style={activeTab === tab ? styles.tabTextActive : styles.tabText}>{tab}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+      <View style={{ flex: 1 }}>
+        {activeTab === 'Games' && (
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            {/* Aquí puedes agregar contenido de juegos en el futuro */}
+          </View>
+        )}
+        {(activeTab === 'Posts' || activeTab === 'Replies' || activeTab === 'Liked') && (
+          <FlatList
+            data={tweets}
+            keyExtractor={item => item.id.toString()}
+            renderItem={({ item }) => <Post {...item} />}
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={{ alignItems: 'center', paddingBottom: 32 }}
+            style={{ flex: 1 }}
+          />
+        )}
       </View>
     </View>
   );
