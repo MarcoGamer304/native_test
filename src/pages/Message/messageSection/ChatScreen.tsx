@@ -8,8 +8,8 @@ import {
 import WebSocketService from "../services/webSockets";
 import AxiosService from "../services/axios";
 import { useState, useEffect } from "react";
-import Messages from "../components/Messages";
 import { obtenerIdUsuario } from "../../../utilities/AsyncStorage";
+import Icon from "react-native-vector-icons/Ionicons";
 
 export default function ChatScreen() {
   const WebSocket = WebSocketService.getInstance();
@@ -67,89 +67,81 @@ export default function ChatScreen() {
 
   const handleGetMessages = async () => {
     try {
-      const response = await Axios.get(
-        "http://192.168.100.191:3000/api/messages/1/all"
-      );
+      const response = await Axios.get("http://192.168.100.191:3000/api/messages/1/all");
 
-      if (!response) {
-        throw new Error("Error al obtener los mensajes");
+      if (response && Array.isArray(response)) {
+        setMessages(response.slice(0, 3));
+      } else {
+        throw new Error("Respuesta inválida");
       }
-
-      const filterdMap = new Map();
-
-      response.forEach((item: any) => {
-        const recipientId = item.recipient.id;
-        if (!filterdMap.has(recipientId)) {
-          filterdMap.set(recipientId, {
-            recipient: item.recipient,
-          });
-        }
-      });
-
-      const filtered = Array.from(filterdMap.values());
-
-      setMessages(filtered);
     } catch (error) {
       console.error("Error al obtener mensajes:", error);
     }
   };
 
   return (
-    <View style={{ flex: 1, padding: 20 }}>
-      <View className="items-center">
-        <FlatList
-          data={messages}
-          keyExtractor={(item) => item.recipient.id}
-          renderItem={({ item }) => (
-            <Messages
-              id={item.recipient.id}
-              key={item.recipient.id}
-              user={item}
-            />
-          )}
-          showsVerticalScrollIndicator={false}
-        />
-      </View>
+    <View style={{ flex: 1, padding: 20, backgroundColor: "#fff" }}>
+      <FlatList
+        data={messages}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({ item }) => {
+          const isMyMessage = item.sender?.id === senderId;
 
-      <TextInput
-        editable
-        multiline
-        maxLength={240}
-        onChangeText={setText}
-        value={text}
-        placeholder="Escribe tu mensaje..."
-        keyboardType="default"
-        style={{
-          borderColor: "gray",
-          borderWidth: 1,
-          padding: 10,
-          borderRadius: 5,
-          marginBottom: 10,
+          return (
+            <View
+              style={{
+                alignSelf: isMyMessage ? "flex-end" : "flex-start",
+                backgroundColor: isMyMessage ? "#DCF8C5" : "#E4E6EB",
+                padding: 10,
+                borderRadius: 10,
+                marginBottom: 10,
+                maxWidth: "75%",
+              }}
+            >
+              <Text style={{ fontWeight: "bold", marginBottom: 4 }}>
+                {item.sender?.username ?? "usuario"}
+              </Text>
+              <Text>{item.content}</Text>
+            </View>
+          );
         }}
+        showsVerticalScrollIndicator={false}
       />
 
-      <TouchableOpacity
-        onPress={handleSendMessage}
-        style={{
-          backgroundColor: "#007AFF",
-          padding: 10,
-          borderRadius: 5,
-          marginBottom: 10,
-        }}
-      >
-        <Text style={{ color: "white", textAlign: "center" }}>Enviar</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        onPress={() => WebSocket.disconnect()}
-        style={{
-          backgroundColor: "#FF3B30",
-          padding: 10,
-          borderRadius: 5,
-        }}
-      >
-        <Text style={{ color: "white", textAlign: "center" }}>Desconectar</Text>
-      </TouchableOpacity>
+      <View style={{ flexDirection: "row", alignItems: "center", marginTop: 16 }}>
+        <TextInput
+          editable
+          multiline
+          maxLength={240}
+          onChangeText={setText}
+          value={text}
+          placeholder="Message..."
+          keyboardType="default"
+          style={{
+            flex: 1,
+            backgroundColor: "#e0e0e0",
+            borderRadius: 20,
+            paddingVertical: 10,
+            paddingHorizontal: 16,
+            marginRight: 8,
+            fontSize: 16,
+            color: "#333",
+          }}
+        />
+        <TouchableOpacity
+          onPress={handleSendMessage}
+          style={{
+            width: 40,
+            height: 40,
+            borderRadius: 20,
+            backgroundColor: "#e0e0e0",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Icon name="send-sharp" size={22} color="#E63946" />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
