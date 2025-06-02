@@ -1,7 +1,7 @@
 import FontAwesome from "react-native-vector-icons/Ionicons";
-import { useState } from "react";
+import { JSX, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import HeaderProps from "../interfeces/componets/headerProps";
+import type { HeaderProps } from "../models/types/headerProps";
 import { DrawerNavigationProp } from "@react-navigation/drawer";
 import { View, Image, Pressable, TextInput, Text } from "react-native";
 
@@ -40,7 +40,7 @@ export default function Header({
           />
         </View>
       ) : (
-        <Text className="text-2xl font-bold mx-5" style={{ fontFamily: 'Nunito' }}>RAID</Text>
+        <Text className="text-2xl font-bold mx-5" style={{ fontFamily: 'Nunito', color: "#e63946"}}>RAID</Text>
       )}
     </View>
   );

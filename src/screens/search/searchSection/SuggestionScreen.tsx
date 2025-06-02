@@ -1,4 +1,4 @@
-import { View, StyleSheet, FlatList } from "react-native";
+import { View, FlatList } from "react-native";
 import recordsData from "../../../provitionalData/records";
 import Records from "../../../components/Records";
 
@@ -20,6 +20,5 @@ export default function SuggestionScreen() {
           showsVerticalScrollIndicator={false}
         />
       </View>
-   
   );
 }

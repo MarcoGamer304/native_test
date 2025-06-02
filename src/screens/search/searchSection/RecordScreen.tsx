@@ -1,4 +1,4 @@
-import { View, StyleSheet, FlatList } from "react-native";
+import { View, FlatList } from "react-native";
 import Records from "../../../components/Records";
 import recordsData from "../../../provitionalData/records";
 

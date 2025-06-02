@@ -1,4 +1,4 @@
-import ScreenBorder from "../../components/essential/ScreenBorders";
+import ScreenBorder from "../../components/ScreenBorders";
 import TopTabsNavigator from "../../routes/TopTabsNavigator";
 import ChatScreen from "./messageSection/ChatScreen";
 import TeamsScreen from "./messageSection/TemsScreen";

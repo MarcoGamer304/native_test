@@ -1,40 +1,41 @@
 import PostProps from "../interfeces/componets/postProps";
-import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
 
 const tweets: PostProps[] = [
     {
       id: 1,
       user: "MarcoElizondo",
       avatar: "https://randomuser.me/api/portraits/men/1.jpg",
-      message: "¡React Native es increíble! 🚀🔥",
+      message: "",
       comments: " HOLA",
       likes: 150,
       shares: 20,
       destacados: true,
       bookmark: false,
+      image: require("../../assets/minecraft.jpeg")
     },
     {
       id: 2,
       user: "JaneDoe",
       avatar: "https://randomuser.me/api/portraits/women/2.jpg",
-      message: "Explorando nuevas tecnologías. ¿Alguna recomendación? 🤔asdddddddddddddddddddddddddddd asdasd asd ag a gagagasfasrkl3krtkarekqorkzmf asfmemqif kadfkaf" ,
+      message: "Explorando nuevas tecnologías. ¿Alguna recomendación? 🤔",
       comments: ["HOLA", "HI", "test"],
       likes: 95,
       shares: 10,
       destacados: true,
       bookmark: false,
+      image: require("../../assets/icon.png")
     },
     {
       id: 3,
       user: "TechGuy",
       avatar: "https://randomuser.me/api/portraits/men/3.jpg",
-      message: "La inteligencia artificial cambiará el mundo 🌍💡",
+      message: "",
       comments: ["HOLA", "HI", "test"],
       likes: 250,
       shares: 50,
       destacados: true,
       bookmark: false,
+      image: require("../../assets/icon.png")
     },
     {
       id: 4,
@@ -45,7 +46,7 @@ const tweets: PostProps[] = [
       likes: 70,
       shares: 15,
       destacados: false,
-      bookmark: false,
+      bookmark: false
     },
     {
       id: 5,
