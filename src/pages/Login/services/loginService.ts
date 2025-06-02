@@ -20,7 +20,7 @@ export class LoginService implements ILogin {
       saveToken(result.token);
       return result;
     } catch (error) {
-      throw new Error(`Error logging in: ${error}`);
+      throw new Error(`${error}`);
     }
   }
 

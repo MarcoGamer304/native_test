@@ -1,5 +1,5 @@
-import notificationProps from "../interfeces/componets/notificationProps";
-const notificationData: notificationProps[] = [
+import { TNotification } from "../pages/Notification/models/types/TNotification";
+const notificationData: TNotification[] = [
   {
     id: 1,
     user: "MarcoElizondo",

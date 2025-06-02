@@ -1,6 +1,6 @@
-import PostProps from "../interfeces/componets/postProps";
+import { TPost } from "../pages/Home/models/types/TPost";
 
-const tweets: PostProps[] = [
+const tweets: TPost[] = [
     {
       id: 1,
       user: "MarcoElizondo",
@@ -9,7 +9,6 @@ const tweets: PostProps[] = [
       comments: " HOLA",
       likes: 150,
       shares: 20,
-      destacados: true,
       bookmark: false,
       image: require("../../assets/minecraft.jpeg")
     },
@@ -21,7 +20,6 @@ const tweets: PostProps[] = [
       comments: ["HOLA", "HI", "test"],
       likes: 95,
       shares: 10,
-      destacados: true,
       bookmark: false,
       image: require("../../assets/icon.png")
     },
@@ -33,7 +31,6 @@ const tweets: PostProps[] = [
       comments: ["HOLA", "HI", "test"],
       likes: 250,
       shares: 50,
-      destacados: true,
       bookmark: false,
       image: require("../../assets/icon.png")
     },
@@ -45,7 +42,6 @@ const tweets: PostProps[] = [
       comments: ["HOLA", "HI", "test"],
       likes: 70,
       shares: 15,
-      destacados: false,
       bookmark: false
     },
     {
@@ -56,7 +52,6 @@ const tweets: PostProps[] = [
       comments: ["HOLA", "HI", "test"],
       likes: 150,
       shares: 20,
-      destacados: true,
       bookmark: false,
     },
     {
@@ -67,7 +62,6 @@ const tweets: PostProps[] = [
       comments: ["HOLA", "HI", "test"],
       likes: 95,
       shares: 10,
-      destacados: false,
       bookmark: false,
     },
     {
@@ -78,7 +72,6 @@ const tweets: PostProps[] = [
       comments: ["HOLA", "HI", "test"],
       likes: 250,
       shares: 50,
-      destacados: true,
       bookmark: false,
     },
     {
@@ -89,7 +82,6 @@ const tweets: PostProps[] = [
       comments: ["HOLA", "HI", "test"],
       likes: 70,
       shares: 15,
-      destacados: false,
       bookmark: false,
     },
   ];

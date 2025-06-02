@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import recordsProps from "../interfeces/componets/recordsProps";
+import { recordsProps } from "../pages/Search/models/types/recordsProps";
 import { Text, View, Image } from "react-native";
 
 export default function Records({ notification, avatar, user }: recordsProps) {

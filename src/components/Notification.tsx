@@ -1,11 +1,11 @@
-import notificationProps from "../interfeces/componets/notificationProps";
+import { TNotification } from "../pages/Notification/models/types/TNotification";
 import { Text, View, Image } from "react-native";
 
 export default function Notification({
   message,
   avatar,
   user,
-}: notificationProps) {
+}: TNotification) {
   const notificationMap: Map<string, string> = new Map([
     ["comment", "commented on your post"],
     ["like", "liked your post"],

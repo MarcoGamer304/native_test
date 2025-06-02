@@ -1,4 +1,4 @@
-import TopTabsNavigator from "../../routes/componets/TopTabsNavigator";
+import TopTabsNavigator from "../../routes/TopTabsNavigator";
 import ScreenBorder from "../../components/ScreenBorders";
 import SuggestionScreen from "./searchSection/SuggestionScreen";
 import RecordScreen from "./searchSection/RecordScreen";

@@ -1,5 +1,5 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import tabsProps from "../interfeces/componets/routes/tabsProps";
+import type { tabsProps } from '../models/types/tabsProps';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -19,15 +19,14 @@ export default function TopTabsNavigator({
         },
         tabBarStyle: {
           backgroundColor: "#f5f5f5",
-          elevation: 0, // Elimina la sombra en Android
-          shadowOpacity: 0, // Elimina la sombra en iOS
+          elevation: 0, 
+          shadowOpacity: 0, 
         },
         tabBarIndicatorStyle: {
           backgroundColor: "#E63946",
           height: 2.5,
           width: "50%",
-          borderRadius: 20,
-          
+          borderRadius: 20, 
         },
         tabBarIndicatorContainerStyle: {
           borderBottomWidth: 0.5,

@@ -1,4 +1,4 @@
-import recordsProps from "../interfeces/componets/recordsProps";
+import { recordsProps } from "../pages/Search/models/types/recordsProps";
 
 const recordsData: recordsProps[] = [
   {

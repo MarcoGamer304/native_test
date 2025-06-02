@@ -3,12 +3,12 @@ import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import SideMenu from "./src/routes/componets/SideMenu";
-import "./global.css";
+import SideMenu from "./src/routes/SideMenu";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./src/pages/Login/LoginScreen";
 import RegisterScreen from "./src/pages/Register/RegisterScreen";
-import AccessScreen from "./src/pages/Access/Access";
+import AccessScreen from "./src/pages/Access/AccessScreen";
+import "./global.css";
 
 const Stack = createNativeStackNavigator();
 

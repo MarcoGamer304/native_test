@@ -1,7 +1,7 @@
 import axios from "axios";
 import { IAxiosService } from "../models/interfaces/IAxiosService";
 import { TLogin } from "../models/types/TLogin";
-import { API_URLS } from "../../../components/essential/apiUrls";
+import { API_URLS } from "../../../essential/apiUrls";
 
 export class AxiosService implements IAxiosService {
   private static instance: AxiosService;
@@ -28,7 +28,7 @@ export class AxiosService implements IAxiosService {
       return response.data;
     } catch (error) {
       throw new Error(
-        `Error fetching data from ${this.baseUrl + "login"}: ${error}`
+        `Invalid credentials or server error login`
       );
     }
   }

@@ -7,7 +7,7 @@ export default function SavedScreen() {
       header={true}
       searchBar={false}
     >
-      <Text>Saved Screen</Text>
+      <Text>Saved test Screen</Text>
     </ScreenBorder>
   );
 }

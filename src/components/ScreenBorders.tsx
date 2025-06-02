@@ -2,7 +2,7 @@ import React from "react";
 import { View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Header from "./Header";
-import ScreenBorderProps from "../interfeces/componets/essential/screenBorderProps";
+import { ScreenBorderProps } from "../models/types/screenBorderProps";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Platform } from 'react-native';
 

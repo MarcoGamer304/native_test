@@ -1,11 +1,11 @@
-import { StyleSheet, View, Text, Image } from "react-native";
+import { StyleSheet, View, Text, Image, TouchableOpacity, SafeAreaView } from "react-native";
 import FontAwesome from "react-native-vector-icons/Ionicons";
 import { createDrawerNavigator, DrawerContentComponentProps, DrawerItem } from "@react-navigation/drawer";
 import { DrawerContentScrollView } from "@react-navigation/drawer";
-import sideTabs from "../components/routes/sideTabs";
+import sideTabs from "./tabs/sideTabs";
 import BottomTabsNavigator from "./BottomTabsNavigator";
-import CreatePostScreen from "../screens/create/CreatePostScreen";
-
+import CreatePostScreen from '../pages/CreatePost/CreatePostScreen';
+import ProfileScreen from '../pages/Profile/ProfileScreen';
 
 const Stack = createDrawerNavigator();
 
@@ -13,10 +13,12 @@ function CustomDrawerContent(props: DrawerContentComponentProps) {
   return (
     <DrawerContentScrollView {...props}>
       <View style={styles.profileSection}>
-        <Image 
-          source={{ uri: "https://randomuser.me/api/portraits/men/1.jpg" }}
-          style={styles.avatar}
-        />
+        <TouchableOpacity onPress={() => props.navigation.navigate('Profile')}>
+          <Image 
+            source={{ uri: "https://randomuser.me/api/portraits/men/1.jpg" }}
+            style={styles.avatar}
+          />
+        </TouchableOpacity>
         <Text style={styles.username}>MarcoElizondo</Text>
         <View style={styles.statsContainer}>
           <View style={styles.statItem}>
@@ -30,13 +32,7 @@ function CustomDrawerContent(props: DrawerContentComponentProps) {
         </View>
       </View>
 
-      <DrawerItem
-        label="Home"
-        icon={({ color, size }) => (
-          <FontAwesome name="home-outline" color={color} size={size} />
-        )}
-        onPress={() => props.navigation.navigate('Home')}
-      />
+      {/* Home button oculto */}
       {sideTabs.filter(item => item.name !== "Theme").map((item) => (
         <DrawerItem
           key={item.name}
@@ -48,21 +44,14 @@ function CustomDrawerContent(props: DrawerContentComponentProps) {
         />
       ))}
       <View style={{ flex: 1 }} />
-      <DrawerItem
-        label={''}
-        icon={({ color }) => (
-          <FontAwesome name={sideTabs.find(item => item.name === "Theme")?.icon || "moon-outline"} color={color} size={34} />
-        )}
-        onPress={() => props.navigation.navigate('Theme')}
-        style={{ position: 'absolute', left: 0, bottom: -200, width: 66, height: 66, borderRadius: 33, alignItems: 'flex-start', paddingLeft: 16}}
-      />
+      {/* Botón Theme eliminado */}
     </DrawerContentScrollView>
   );
 }
 
 export default function SideMenu() {
   return (
-    <>
+    <SafeAreaView style={{flex: 1, backgroundColor: '#f5f5f5'}}>
       <Stack.Navigator
         screenOptions={{
           drawerLabelStyle: { fontSize: 14, fontWeight: "bold" },
@@ -85,7 +74,11 @@ export default function SideMenu() {
           name="CreatePost"
           component={CreatePostScreen}
         />
-        {sideTabs.map((item) => (
+        <Stack.Screen
+          name="Profile"
+          component={ProfileScreen}
+        />
+        {sideTabs.filter(item => item.name !== 'Profile').map((item) => (
           <Stack.Screen
             key={item.name}
             name={item.name}
@@ -93,7 +86,7 @@ export default function SideMenu() {
           />
         ))}
       </Stack.Navigator>
-    </>
+    </SafeAreaView>
   );
 }
 

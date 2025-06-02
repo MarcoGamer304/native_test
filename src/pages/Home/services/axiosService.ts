@@ -2,7 +2,7 @@ import axios from "axios";
 import { TEndpointPost } from "../models/types/TEndpointPost";
 import { IAxiosService } from "../models/interfaces/IAxiosService";
 import { TPost } from "../models/types/TPost";
-import { API_URLS } from "../../../components/essential/apiUrls";
+import { API_URLS } from "../../../essential/apiUrls";
 
 export class AxiosService implements IAxiosService {
   private static instance: AxiosService;
