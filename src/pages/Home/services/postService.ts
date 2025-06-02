@@ -1,10 +1,11 @@
 import { IPost } from "../models/interfaces/IPost";
 import { TEndpointPost } from "../models/types/TEndpointPost";
 import { TPost } from "../models/types/TPost";
-import Posts from "../ProvisionalData/twit";
+import { AxiosService } from "./axiosService";
 
 export class PostService implements IPost {
   private static instance: PostService;
+  private static readonly axiosService = AxiosService.getInstance();
 
   static getInstance(): PostService {
     if (!PostService.instance) {
@@ -13,23 +14,23 @@ export class PostService implements IPost {
     return PostService.instance;
   }
 
-  async get(id: number): Promise<TEndpointPost> {
-    return await Posts[1];
+  async getAll(): Promise<TEndpointPost[]> {
+    return await PostService.axiosService.getAll(`posts`);
   }
 
   async getByUser(id: number): Promise<TEndpointPost[]> {
-    return await Posts;
+    return await PostService.axiosService.getAll(`posts/${id}`);
   }
 
   async save(data: TPost): Promise<TEndpointPost> {
-    return await Posts[1];
+    return await PostService.axiosService.save(`posts`, data);
   }
 
   async delete(id: number): Promise<TEndpointPost> {
-    return await Posts[1];
+    return await PostService.axiosService.delete(`posts/${id}`);
   }
 
   async put(id: number, data: TPost): Promise<TEndpointPost> {
-    return await Posts[1];
+    return await PostService.axiosService.put(`posts/${id}`, data);
   }
 }

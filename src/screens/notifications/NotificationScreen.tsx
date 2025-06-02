@@ -1,6 +1,6 @@
 import Notification from "../../components/Notification";
 import notificationData from "../../provitionalData/notificationExamples";
-import ScreenBorder from "../../components/essential/ScreenBorders";
+import ScreenBorder from "../../components/ScreenBorders";
 import { View } from "react-native";
 import FAB from "../../components/FAB";
 

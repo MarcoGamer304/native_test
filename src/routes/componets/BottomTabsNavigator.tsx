@@ -8,7 +8,6 @@ const Stack = createBottomTabNavigator<RootStackParamList>();
 export const tabBarAnimation = new Animated.Value(1);
 
 export default function BottomTabsNavigator() {
-
   return (
     <Stack.Navigator
       screenOptions={{
@@ -19,8 +18,10 @@ export default function BottomTabsNavigator() {
         tabBarStyle: {
           backgroundColor: "#f5f5f5",
           borderTopWidth: 0,
-          paddingTop: -20,
-          
+          marginVertical: 15, 
+          justifyContent: "flex-end",
+          maxHeight: 40,
+          elevation: 0,
         },
         headerShown: false,
       }}
@@ -32,10 +33,10 @@ export default function BottomTabsNavigator() {
           component={item.component}
           options={{
             tabBarIcon: ({ color, focused }) => (
-              <FontAwesome 
-                name={focused ? item.icon.replace("-outline", "") : item.icon} 
-                color={color} 
-                size={28} 
+              <FontAwesome
+                name={focused ? item.icon.replace("-outline", "") : item.icon}
+                color={color}
+                size={28}
               />
             ),
           }}

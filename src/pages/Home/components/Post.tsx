@@ -4,7 +4,6 @@ import {
   View,
   Image,
   TouchableOpacity,
-  ImageSourcePropType,
 } from "react-native";
 import type { TPost } from "../models/types/TPost";
 
@@ -51,7 +50,7 @@ export default function Post({
           </Text>
           {image && (
             <Image
-              source={image as ImageSourcePropType}
+              source={{ uri: image }}
               style={{
                 width: "100%",
                 height: 200,

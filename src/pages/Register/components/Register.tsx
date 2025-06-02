@@ -6,7 +6,6 @@ import {
   Text,
   StyleSheet,
   ActivityIndicator,
-  Alert,
 } from "react-native";
 import { TNavigation } from "../models/types/TNavigation";
 import useRegister from "../hooks/useRegister";

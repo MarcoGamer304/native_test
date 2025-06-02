@@ -1,7 +1,7 @@
 import { View, FlatList } from "react-native";
 import data from "../../provitionalData/twit";
 import Post from "../../components/Post";
-import ScreenBorder from "../../components/essential/ScreenBorders";
+import ScreenBorder from "../../components/ScreenBorders";
 import type PostProps from "../../interfeces/componets/postProps";
 import FAB from "../../components/FAB";
 

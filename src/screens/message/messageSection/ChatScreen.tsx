@@ -1,7 +1,6 @@
 //messages screen socket.io
 import { Text, TouchableOpacity } from "react-native";
-import ScreenBorder from "../../../components/essential/ScreenBorders";
-import Websocket from "../../../services/webSockets";
+import ScreenBorder from "../../../components/ScreenBorders";
 import WebSocketService from "../../../services/webSockets";
 
 export default function ChatScreen() {

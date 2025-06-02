@@ -1,5 +1,5 @@
 export type TEndpointLogin = {
   id: number;
-  name: string;
+  username: string;
   token: string;
 };

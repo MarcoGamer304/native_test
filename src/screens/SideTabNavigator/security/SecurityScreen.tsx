@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import ScreenBorder from "../../../components/essential/ScreenBorders";
+import ScreenBorder from "../../../components/ScreenBorders";
 
 const options = [
   { icon: "options-outline", label: "Content preferences" },

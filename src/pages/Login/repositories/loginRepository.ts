@@ -14,8 +14,16 @@ export class LoginRepository implements ILogin {
     return LoginRepository.instance;
   }
 
-  async save(data: TLogin): Promise<TEndpointLogin> {
-    const response = await this.loginService.save(data);
+  async login(data: TLogin): Promise<TEndpointLogin> {
+    const response = await this.loginService.login(data);
+    if (!response) {
+      throw new Error("Error al obtener el usuario");
+    }
+    return await response;
+  }
+
+  async register(data: TLogin): Promise<TEndpointLogin> {
+    const response = await this.loginService.register(data);
     if (!response) {
       throw new Error("Error al obtener el usuario");
     }

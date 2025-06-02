@@ -1,5 +1,5 @@
 import { Text } from "react-native";
-import ScreenBorder from "../../../components/essential/ScreenBorders";
+import ScreenBorder from "../../../components/ScreenBorders";
 
 export default function ProfileScreen() {
   return (

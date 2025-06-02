@@ -1,5 +1,5 @@
 import FontAwesome from "react-native-vector-icons/Ionicons";
-import { useState } from "react";
+import { JSX, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import type { HeaderProps } from "../models/types/headerProps";
 import { DrawerNavigationProp } from "@react-navigation/drawer";

@@ -1,4 +1,5 @@
 export type TUser = {
-    name: string,
-    token: string
-}
+  id: number;
+  username: string;
+  token: string;
+};

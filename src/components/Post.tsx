@@ -1,6 +1,7 @@
 import Icon from "react-native-vector-icons/Ionicons";
 import { Text, View, Image, TouchableOpacity, ImageSourcePropType } from "react-native";
 import PostProps from "../interfeces/componets/postProps";
+import { JSX } from "react";
 
 export default function Post({
   user,

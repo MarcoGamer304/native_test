@@ -14,12 +14,12 @@ export class PostRepository implements IPost {
     return PostRepository.instance;
   }
 
-  async get(id: number): Promise<TEndpointPost> {
-    const response = await this.postService.get(id);
-    if (!response) {
+  async getAll(): Promise<TEndpointPost[]> {
+    const response = await this.postService.getAll();
+    if (!response) { 
       throw new Error("Error al obtener la notificación");
     }
-    return await response;
+    return response;
   }
 
   async getByUser(id: number): Promise<TEndpointPost[]> {
@@ -27,7 +27,7 @@ export class PostRepository implements IPost {
     if (!response) {
       throw new Error("Error al obtener las notificaciones");
     }
-    return await response;
+    return response;
   }
 
   async save(data: TPost): Promise<TEndpointPost> {
@@ -35,7 +35,7 @@ export class PostRepository implements IPost {
     if (!response) {
       throw new Error("Error al crear la notificación");
     }
-    return await response;
+    return response;
   }
 
   async delete(id: number): Promise<TEndpointPost> {
@@ -43,7 +43,7 @@ export class PostRepository implements IPost {
     if (!response) {
       throw new Error("Error al eliminar la notificación");
     }
-    return await response;
+    return response;
   }
 
   async put(id: number, data: TPost): Promise<TEndpointPost> {
@@ -51,6 +51,6 @@ export class PostRepository implements IPost {
     if (!response) {
       throw new Error("Error al actualizar la notificación");
     }
-    return await response;
+    return response;
   }
 }

@@ -13,6 +13,7 @@ export class RegisterService implements IRegister {
   }
 
   async save(data: TRegister): Promise<TEndpointRegister> {
+    data.password = "asdkaf"; 
     const user: TEndpointRegister = {
       name: "marco",
       email: "marco@correo.com",
@@ -20,6 +21,6 @@ export class RegisterService implements IRegister {
       age: 18,
       birthday: "asd",
     };
-    return await user;
+    return  user;
   }
 }

@@ -1,5 +1,4 @@
 import PostProps from "../interfeces/componets/postProps";
-import { View, Text, Image, StyleSheet } from 'react-native';
 
 const tweets: PostProps[] = [
     {

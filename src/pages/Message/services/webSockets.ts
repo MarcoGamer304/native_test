@@ -3,7 +3,7 @@ import { io, Socket } from "socket.io-client";
 export default class WebSocketService {
   private static instance: WebSocketService;
   private socket: Socket | null = null;
-  private url = "http://192.168.100.12:3000";
+  private url = "http://192.168.100.23:3000";
 
   private constructor() {}
 

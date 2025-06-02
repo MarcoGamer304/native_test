@@ -3,7 +3,8 @@ import { TUser } from "../../../models/types/TUser";
 
 export const createAddapterLogin = (user: TEndpointLogin): TUser => {
   return {
-    name: user.name,
+    id: user.id,
+    username: user.username,
     token: user.token,
   };
 };

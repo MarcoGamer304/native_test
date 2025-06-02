@@ -9,6 +9,27 @@ export const guardarIdUsuario = async (id: number) => {
   }
 };
 
+export const saveToken = async (token: string) => {
+  try {
+    await AsyncStorage.setItem("token", token);
+    console.log("token saved");
+  } catch (e) {
+    console.error("error at save token: ", e);
+  }
+};
+
+export const getToken = async (): Promise<string> => {
+  try {
+    const token = await AsyncStorage.getItem("token");
+    if (token === null) {
+      throw new Error("token not found");
+    }
+    return token;
+  } catch (e) {
+    throw new Error("error getting token " + (e as Error).message);
+  }
+};
+
 export const obtenerIdUsuario = async (): Promise<number> => {
   try {
     const id = await AsyncStorage.getItem("userId");
