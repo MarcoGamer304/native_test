@@ -7,6 +7,8 @@ import {
   Text,
   StyleSheet,
   ActivityIndicator,
+  TouchableWithoutFeedback,
+  Keyboard,
   Image,
 } from "react-native";
 import { TNavigation } from "../models/types/TNavigation";
@@ -29,74 +31,76 @@ export default function Login({ navigation }: TNavigation) {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={{ alignItems: 'center', marginBottom: 24 }}>
-        <Image
-          source={require('../../../../assets/RaidLogo.png')}
-          style={{ width: 220, height: 120, resizeMode: 'contain' }}
-        />
-      </View>
-
-      <Text style={styles.label}>Your email</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="example@mail.com"
-        placeholderTextColor="#bdbdbd"
-        onChangeText={setEmail}
-        value={email}
-        autoCapitalize="none"
-      />
-
-      <Text style={styles.label}>Password</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="••••••••"
-        placeholderTextColor="#bdbdbd"
-        secureTextEntry
-        onChangeText={setPassword}
-        value={password}
-      />
-
-      {loading ? (
-        <ActivityIndicator color="#fff" style={styles.loadingIndicator} />
-      ) : (
-        <View style={styles.buttonWrapper}>
-          <Button title="Login" onPress={handleLogin} color="#e53935" />
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View style={styles.container}>
+        <View style={{ alignItems: "center", marginBottom: 24 }}>
+          <Image
+            source={require("../../../../assets/RaidLogo.png")}
+            style={{ width: 220, height: 120, resizeMode: "contain" }}
+          />
         </View>
-      )}
-      
-      <View style={styles.signupContainer}>
-        <Text style={styles.signupText}>Don’t have an account? </Text>
-        <Text
-          style={styles.signupLink}
-          onPress={() => navigation.replace("Register")}
-        >
-          Sign up
-        </Text>
-      </View>
 
-      {error && <Text style={styles.error}>Error: {error}</Text>}
-    </View>
+        <Text style={styles.label}>Your email</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="example@mail.com"
+          placeholderTextColor="#bdbdbd"
+          onChangeText={setEmail}
+          value={email}
+          autoCapitalize="none"
+        />
+
+        <Text style={styles.label}>Password</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="••••••••"
+          placeholderTextColor="#bdbdbd"
+          secureTextEntry
+          onChangeText={setPassword}
+          value={password}
+        />
+
+        {loading ? (
+          <ActivityIndicator color="#fff" style={styles.loadingIndicator} />
+        ) : (
+          <View style={styles.buttonWrapper}>
+            <Button title="Login" onPress={handleLogin} color="#e53935" />
+          </View>
+        )}
+
+        <View style={styles.signupContainer}>
+          <Text style={styles.signupText}>Don’t have an account? </Text>
+          <Text
+            style={styles.signupLink}
+            onPress={() => navigation.replace("Register")}
+          >
+            Sign up
+          </Text>
+        </View>
+
+        {error && <Text style={styles.error}>Error: {error}</Text>}
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 
 const styles = StyleSheet.create({
   signupContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
     marginTop: 16,
     marginBottom: 8,
   },
   signupText: {
-    color: '#bdbdbd',
+    color: "#bdbdbd",
     fontSize: 15,
   },
   signupLink: {
-    color: '#1976d2',
+    color: "#1976d2",
     fontSize: 15,
     marginLeft: 2,
-    fontWeight: '500',
+    fontWeight: "500",
   },
   container: {
     justifyContent: "center",
