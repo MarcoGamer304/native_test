@@ -85,7 +85,6 @@ export const useCreatePost = () => {
     const response = await CreatePostService.getInstance().create(formData);
 
     if (response.id) {
-      alert("Publicación creada con éxito");
       setPostText("");
       setImage(undefined);
       navigation.goBack();

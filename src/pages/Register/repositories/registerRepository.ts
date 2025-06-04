@@ -19,6 +19,6 @@ export class RegisterRepository implements IRegister {
     if (!response) {
       throw new Error("Error al crear usuario");
     }
-    return await response;
+    return response;
   }
 }

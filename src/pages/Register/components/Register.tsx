@@ -1,32 +1,46 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   View,
   TextInput,
   TouchableOpacity,
   Text,
-  StyleSheet,
   ActivityIndicator,
+  TouchableWithoutFeedback,
+  Keyboard
 } from "react-native";
 import { TNavigation } from "../models/types/TNavigation";
 import useRegister from "../hooks/useRegister";
 import { TRegister } from "../models/types/TRegister";
+import { styles } from "../styles/styles";
 
 export default function Register({ navigation }: TNavigation) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [age, setAge] = useState("");
-  const [birthday, setBirthday] = useState("");
-  const [name, setName] = useState("");
-
-  const { requestUser, user, loading, error } = useRegister();
+  const {
+    requestUser,
+    user,
+    loading,
+    error,
+    setEmail,
+    setLast_name,
+    setName,
+    setUsername,
+    setPassword,
+    setPassword_confirmation,
+    email,
+    password,
+    username,
+    last_name,
+    name,
+    password_confirmation,
+  } = useRegister();
 
   const handleRegister = async () => {
     const loginData: TRegister = {
       email,
       password,
-      age: parseInt(age, 10),
-      birthday,
+      username,
+      last_name,
       name,
+      password_confirmation,
     };
 
     requestUser(loginData);
@@ -37,6 +51,7 @@ export default function Register({ navigation }: TNavigation) {
   };
 
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <View style={styles.container}>
       <Text style={styles.label}>Usename</Text>
       <TextInput
@@ -46,14 +61,24 @@ export default function Register({ navigation }: TNavigation) {
         value={name}
       />
 
-      <Text style={styles.label}>Birthday</Text>
+      <Text style={styles.label}>Lastname</Text>
       <TextInput
         style={styles.input}
-        placeholder="DD-MM-YYYY"
-        onChangeText={setBirthday}
-        value={birthday}
-        autoCapitalize="none"
-        keyboardType="email-address"
+        placeholder="Lastname"
+        onChangeText={setLast_name}
+        value={last_name}
+        autoCapitalize="sentences"
+        keyboardType="ascii-capable"
+      />
+
+      <Text style={styles.label}>Username</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Username"
+        onChangeText={setUsername}
+        value={username}
+        autoCapitalize="sentences"
+        keyboardType="ascii-capable"
       />
 
       <Text style={styles.label}>Email</Text>
@@ -75,10 +100,23 @@ export default function Register({ navigation }: TNavigation) {
         value={password}
       />
 
+      <Text style={styles.label}>Confirmation</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="••••••••"
+        secureTextEntry
+        onChangeText={setPassword_confirmation}
+        value={password_confirmation}
+      />
+
       {loading ? (
         <ActivityIndicator size="large" />
       ) : (
-        <TouchableOpacity style={styles.loginButton} onPress={handleRegister} activeOpacity={0.8}>
+        <TouchableOpacity
+          style={styles.loginButton}
+          onPress={handleRegister}
+          activeOpacity={0.8}
+        >
           <Text style={styles.loginButtonText}>Create account</Text>
         </TouchableOpacity>
       )}
@@ -95,71 +133,7 @@ export default function Register({ navigation }: TNavigation) {
 
       {error && <Text style={styles.error}>Error: {error}</Text>}
     </View>
+    </TouchableWithoutFeedback>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: '#f4f4f4',
-  },
-  label: { marginBottom: 5, alignSelf: 'flex-start' },
-  input: {
-    borderWidth: 1,
-    borderColor: "#ccc",
-    marginBottom: 15,
-    padding: 10,
-    borderRadius: 5,
-    width: 260,
-    backgroundColor: '#fff',
-  },
-  loginButton: {
-    backgroundColor: '#e53935',
-    borderRadius: 10,
-    width: 260,
-    paddingVertical: 12,
-    alignItems: 'center',
-    marginBottom: 14,
-  },
-  loginButtonText: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: '500',
-  },
-  signupButton: {
-    backgroundColor: '#f4f4f4',
-    borderWidth: 2,
-    borderColor: '#232323',
-    borderRadius: 10,
-    width: 260,
-    paddingVertical: 12,
-    alignItems: 'center',
-  },
-  signupButtonText: {
-    color: '#232323',
-    fontSize: 18,
-    fontWeight: '500',
-  },
-  signupContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 16,
-    marginBottom: 8,
-  },
-  signupText: {
-    color: '#bdbdbd',
-    fontSize: 15,
-  },
-  signupLink: {
-    color: '#1976d2',
-    fontSize: 15,
-    marginLeft: 2,
-    fontWeight: '500',
-  },
-
-  error: { color: "red", marginTop: 10 },
-});
