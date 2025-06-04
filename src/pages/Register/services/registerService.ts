@@ -1,9 +1,11 @@
 import { IRegister } from "../models/interfaces/IRegister";
 import { TEndpointRegister } from "../models/types/TEndpointRegister";
 import { TRegister } from "../models/types/TRegister";
+import { AxiosService } from "./axiosService";
 
 export class RegisterService implements IRegister {
   private static instance: RegisterService;
+  private readonly axiosService = AxiosService.getInstance();
 
   static getInstance(): RegisterService {
     if (!RegisterService.instance) {
@@ -13,14 +15,11 @@ export class RegisterService implements IRegister {
   }
 
   async save(data: TRegister): Promise<TEndpointRegister> {
-    data.password = "asdkaf"; 
-    const user: TEndpointRegister = {
-      name: "marco",
-      email: "marco@correo.com",
-      password: "asdkaf",
-      age: 18,
-      birthday: "asd",
-    };
-    return  user;
+    try {
+      const result = await this.axiosService.save(data);
+      return result;
+    } catch (error) {
+      throw new Error("cant register user at this moment"+error);
+    }
   }
 }

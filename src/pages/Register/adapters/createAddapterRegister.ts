@@ -4,9 +4,10 @@ import { TRegister } from "../models/types/TRegister";
 export const createAddapterRegister = (user: TEndpointRegister): TRegister => {
   return {
     name: user.name,
-    age: user.age,
-    birthday: user.birthday,
+    last_name: user.last_name,
+    username: user.username,
     email: user.email,
-    password: user.password
+    password: user.password,
+    password_confirmation: user.password_confirmation
   };
 };
