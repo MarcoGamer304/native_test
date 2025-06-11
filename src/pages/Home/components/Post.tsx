@@ -21,7 +21,7 @@ export default function Post({
     <View
       className="border"
       style={{
-        backgroundColor: "#f5f5f5",
+        backgroundColor: "#f4f4f4",
         marginTop: 10,
         width: 380,
         borderWidth: 0,
