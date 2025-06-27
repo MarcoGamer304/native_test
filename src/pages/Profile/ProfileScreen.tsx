@@ -14,7 +14,7 @@ export default function ProfileScreen() {
 
   return (
     <ScreenBorder header={false} searchBar={false}>
-      <View style={{ flex: 1, backgroundColor: "#fff" }}>
+      <View style={{ flex: 1, backgroundColor: "#f4f4f4" }}>
         {}
         <TouchableOpacity
           style={styles.backBtn}
@@ -87,16 +87,133 @@ export default function ProfileScreen() {
         </View>
         <View style={{ flex: 1 }}>
           {activeTab === "Games" && (
+  <View style={{ flex: 1, width: '100%', padding: 8 }}>
+    {[
+      {
+        id: 1,
+        title: 'Fortnite',
+        hours: '12h registradas',
+        trophies: '5/20',
+        percent: 95,
+        image: 'https://static-cdn.jtvnw.net/ttv-boxart/33214-285x380.jpg',
+        icons: [
+          require('../../../assets/trophy.png'),
+          require('../../../assets/trophy.png'),
+          require('../../../assets/trophy.png'),
+          require('../../../assets/trophy.png'),
+          require('../../../assets/trophy.png'),
+        ],
+        platform: 'logo-playstation',
+        platformAlt: 'logo-game-controller',
+        platformLabel: 'PlayStation',
+        publisher: require('../../../assets/epicgames.png'),
+      },
+      {
+        id: 2,
+        title: 'Genshin Impact',
+        hours: '12h registradas',
+        trophies: '5/20',
+        percent: 80,
+        image: 'https://alfabetajuega.com/hero/2020/09/genshin-impact.jpg?width=1200&aspect_ratio=16:9',
+        icons: [
+          require('../../../assets/trophy.png'),
+          require('../../../assets/trophy.png'),
+          require('../../../assets/trophy.png'),
+          require('../../../assets/trophy.png'),
+          require('../../../assets/trophy.png'),
+        ],
+        platform: 'logo-playstation',
+        platformAlt: 'logo-game-controller',
+        platformLabel: 'PlayStation',
+        publisher: null,
+      },
+      {
+        id: 3,
+        title: 'It Takes Two',
+        hours: '12h registradas',
+        trophies: '5/20',
+        percent: 95,
+        image: 'https://image.api.playstation.com/vulcan/ap/rnd/202011/1304/1W0n0K0v1bU4pKJ5J2s7E7rJ.png',
+        icons: [
+          require('../../../assets/trophy.png'),
+          require('../../../assets/trophy.png'),
+          require('../../../assets/trophy.png'),
+          require('../../../assets/trophy.png'),
+          require('../../../assets/trophy.png'),
+        ],
+        platform: 'logo-xbox',
+        platformAlt: 'logo-game-controller',
+        platformLabel: 'Xbox',
+        publisher: null,
+      },
+    ].map((game) => (
+      <View
+        key={game.id}
+        style={{
+          flexDirection: 'row',
+          backgroundColor: '#fff',
+          borderRadius: 10,
+          marginBottom: 16,
+          shadowColor: '#000',
+          shadowOpacity: 0.07,
+          shadowOffset: { width: 0, height: 2 },
+          shadowRadius: 4,
+          elevation: 2,
+          alignItems: 'center',
+          padding: 8,
+        }}
+      >
+        <Image
+          source={{ uri: game.image }}
+          style={{ width: 110, height: 110, borderRadius: 8, marginRight: 10 }}
+        />
+        <View style={{ flex: 1 }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#232323' }}>{game.title}</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 2 }}>
+              {game.publisher && (
+                <Image source={game.publisher} style={{ width: 22, height: 22, marginRight: 2 }} />
+              )}
+              <Icon name={game.platform} size={22} color="#232323" />
+            </View>
+          </View>
+          <Text style={{ color: '#555', fontSize: 13, marginBottom: 2 }}>{game.hours}</Text>
+          <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 4 }}>
+            <Icon name="trophy-outline" size={16} color="#232323" style={{ marginRight: 3 }} />
+            <Text style={{ fontWeight: 'bold', marginRight: 8 }}>{game.trophies}</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              {game.icons.map((icon, idx) => (
+                <Image key={idx} source={icon} style={{ width: 20, height: 20, marginRight: 2 }} />
+              ))}
+            </View>
+          </View>
+          <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 2 }}>
             <View
               style={{
                 flex: 1,
-                alignItems: "center",
-                justifyContent: "center",
+                height: 13,
+                backgroundColor: '#eee',
+                borderRadius: 8,
+                overflow: 'hidden',
+                marginRight: 7,
               }}
             >
-              {/* Aquí puedes agregar contenido de juegos en el futuro */}
+              <View
+                style={{
+                  width: `${game.percent}%`,
+                  height: '100%',
+                  backgroundColor: '#e53935',
+                  borderRadius: 8,
+                }}
+              />
             </View>
-          )}
+            <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#232323' }}>{game.percent}%</Text>
+          </View>
+        </View>
+      </View>
+    ))}
+  </View>
+)}
           {(activeTab === "Posts" ||
             activeTab === "Replies" ||
             activeTab === "Liked") && (
@@ -136,7 +253,7 @@ const styles = StyleSheet.create({
     top: 40,
     left: 15,
     zIndex: 10,
-    backgroundColor: "#fff",
+    backgroundColor: "#f4f4f4",
     borderRadius: 20,
     width: 40,
     height: 40,
@@ -240,7 +357,7 @@ const styles = StyleSheet.create({
     borderColor: "#e1e8ed",
     marginTop: 10,
     marginBottom: 6,
-    backgroundColor: "#fff",
+    backgroundColor: "#f4f4f4",
   },
   tab: {
     flex: 1,
