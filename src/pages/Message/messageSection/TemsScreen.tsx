@@ -2,6 +2,7 @@ import React from "react";
 import { Text, TouchableOpacity, View, FlatList, StyleSheet, Image } from "react-native";
 import ScreenBorder from "../../../components/ScreenBorders";
 import WebSocketService from "../services/webSockets";
+import { useNavigation } from "@react-navigation/native";
 
 type ChatItem = {
   id: string;
@@ -37,9 +38,14 @@ const mockChats = [
 
 export default function TeamsScreen() {
   const WebSocket = WebSocketService.getInstance();
+  const navigation = useNavigation<any>();
+
+  const handleChatPress = (item: ChatItem) => {
+    navigation.navigate('Message', { chat: item });
+  };
 
   const renderChatItem = ({ item }: { item: ChatItem }) => (
-    <TouchableOpacity style={styles.chatItemContainer}>
+    <TouchableOpacity style={styles.chatItemContainer} onPress={() => handleChatPress(item)}>
       <Image source={{ uri: item.avatar }} style={styles.avatar} />
       <View style={styles.chatTextContainer}>
         <View style={styles.chatHeader}>
@@ -60,14 +66,14 @@ export default function TeamsScreen() {
         style={styles.listContainer}
       />
       {}
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={styles.testButton}
         onPress={() => {
           WebSocket.sendMessage(1, 2, "hola");
         }}
       >
-        <Text style={styles.testButtonText}>Enviar mensaje de prueba al webSocket</Text>
-      </TouchableOpacity>
+        <Text style={styles.testButtonText}></Text>
+      </TouchableOpacity> */}
     </ScreenBorder>
   );
 }

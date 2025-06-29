@@ -10,14 +10,20 @@ import AxiosService from "../services/axios";
 import { useState, useEffect } from "react";
 import { obtenerIdUsuario } from "../../../utilities/AsyncStorage";
 import Icon from "react-native-vector-icons/Ionicons";
+import { useRoute } from "@react-navigation/native";
 
 export default function ChatScreen() {
+  const route = useRoute<any>();
+  const chat = route.params?.chat;
+
   const WebSocket = WebSocketService.getInstance();
   const Axios = AxiosService.getInstance();
 
   const [text, setText] = useState<string>("");
   const [senderId, setSenderId] = useState<number>(1);
-  const [recipientId] = useState<number>(2);
+  const [recipientId, setRecipientId] = useState<number>(
+    chat ? parseInt(chat.id, 10) : 2
+  );
   const [messages, setMessages] = useState<any[]>([]);
 
   useEffect(() => {
@@ -45,16 +51,20 @@ export default function ChatScreen() {
       handleGetMessages();
     };
 
-    init();
+    if (chat) {
+      init();
+    }
 
     return () => {
-      WebSocket.disconnect();
+      if (chat) {
+        WebSocket.disconnect();
+      }
     };
-  }, []);
+  }, [chat]);
 
   const handleSendMessage = async () => {
     try {
-      if (!text.trim()) return;
+      if (!text.trim() || !chat) return;
 
       WebSocket.sendMessage(senderId, recipientId, text);
       alert("Mensaje enviado");
@@ -66,8 +76,11 @@ export default function ChatScreen() {
   };
 
   const handleGetMessages = async () => {
+    if (!chat) return;
     try {
-      const response = await Axios.get("http://192.168.100.191:3000/api/messages/1/all");
+      const response = await Axios.get(
+        `http://192.168.100.191:3000/api/messages/${chat.id}/all`
+      );
 
       if (response && Array.isArray(response)) {
         setMessages(response.slice(0, 3));
@@ -78,6 +91,14 @@ export default function ChatScreen() {
       console.error("Error al obtener mensajes:", error);
     }
   };
+
+  if (!chat) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Text>Selecciona un chat para empezar a chatear.</Text>
+      </View>
+    );
+  }
 
   return (
     <View style={{ flex: 1, padding: 20, backgroundColor: "#fff" }}>

@@ -6,12 +6,13 @@ import TeamsScreen from "./messageSection/TemsScreen";
 export default function MessageScreen() {
   
   return (
-    <ScreenBorder searchBar={true} header={true}>
+    <ScreenBorder searchBar={false} header={true}>
       <TopTabsNavigator
         elements={[
           { name: "Teams", component: TeamsScreen, icon: "comments" },
           { name: "Message", component: ChatScreen, icon: "comment" },
         ]}
+        tabBarVisible={false}
       />
     </ScreenBorder>
   );
